@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santiago Mastroberti — Game Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --card: #1a1a26;
+    --border: #2a2a40;
+    --accent: #ff4d6d;
+    --accent2: #7c3aed;
+    --accent3: #06b6d4;
+    --text: #e8e8f0;
+    --muted: #7070a0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  .hero {
+    min-height: 100vh; display: grid; place-items: center;
+    padding: 8rem 3rem 4rem; position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(124,58,237,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 60% at 20% 60%, rgba(255,77,109,0.08) 0%, transparent 70%);
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; width: 100%; }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(255,77,109,0.1); border: 1px solid rgba(255,77,109,0.3);
+    color: var(--accent); padding: 0.3rem 1rem; font-size: 0.75rem;
+    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 800; line-height: 0.92; letter-spacing: -0.03em;
+    margin-bottom: 2rem; animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1 .line2 { display: block; color: transparent; -webkit-text-stroke: 1px rgba(232,232,240,0.3); }
+  h1 .accent-word { color: var(--accent); }
+
+  .hero-desc { max-width: 500px; color: var(--muted); font-size: 0.9rem; margin-bottom: 3rem; animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.8rem 1.8rem; font-family: 'Space Mono', monospace;
+    font-size: 0.8rem; letter-spacing: 0.08em; text-decoration: none;
+    transition: all 0.25s; cursor: pointer; border: none;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .btn-primary:hover { background: #ff6b85; transform: translateY(-2px); box-shadow: 0 0 30px rgba(255,77,109,0.4); }
+  .btn-ghost {
+    background: transparent; color: var(--text); border: 1px solid var(--border);
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  .hero-stats { position: absolute; right: 3rem; bottom: 4rem; display: flex; flex-direction: column; gap: 2rem; animation: fadeUp 0.6s 0.4s ease both; }
+  .stat { text-align: right; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--accent); line-height: 1; display: block; }
+  .stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--accent); }
+
+  h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 3.5rem; }
+
+  #about {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+    border-top: 1px solid var(--border); max-width: 1100px; margin: 0 auto; padding: 7rem 3rem;
+  }
+  .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 0.9rem; }
+  .about-text p strong { color: var(--text); }
+  .philosophy-box { margin-top: 2rem; padding: 1.5rem; border-left: 3px solid var(--accent); background: rgba(255,77,109,0.05); font-style: italic; color: var(--text); font-size: 0.9rem; line-height: 1.8; }
+
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem; }
+  .skill-chip { display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1rem; background: var(--card); border: 1px solid var(--border); font-size: 0.78rem; color: var(--text); transition: border-color 0.2s, color 0.2s; }
+  .skill-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .skill-chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent3); flex-shrink: 0; }
+  .tools-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tool-tag { padding: 0.25rem 0.7rem; background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.3); color: #a78bfa; font-size: 0.72rem; letter-spacing: 0.05em; }
+
+  .filter-bar { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .filter-btn { padding: 0.45rem 1.1rem; background: transparent; border: 1px solid var(--border); color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(255,77,109,0.08); }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+
+  .project-card { background: var(--card); border: 1px solid var(--border); display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover { border-color: rgba(255,77,109,0.4); transform: translateY(-4px); }
+
+  .card-thumb { height: 180px; background: var(--surface); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .card-thumb-pattern {
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(45deg, rgba(255,77,109,0.04) 0px, rgba(255,77,109,0.04) 1px, transparent 1px, transparent 20px),
+                repeating-linear-gradient(-45deg, rgba(124,58,237,0.04) 0px, rgba(124,58,237,0.04) 1px, transparent 1px, transparent 20px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-thumb-icon { font-size: 3.5rem; opacity: 0.6; }
+  .card-genre-badge { position: absolute; top: 0.75rem; left: 0.75rem; padding: 0.2rem 0.6rem; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(10,10,15,0.8); border: 1px solid var(--border); color: var(--muted); }
+  .card-status-badge { position: absolute; top: 0.75rem; right: 0.75rem; padding: 0.2rem 0.6rem; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .badge-released { background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.3); color: var(--accent3); }
+  .badge-dev { background: rgba(255,77,109,0.1); border: 1px solid rgba(255,77,109,0.3); color: var(--accent); }
+  .badge-proto { background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.3); color: #a78bfa; }
+
+  .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.75rem; }
+  .card-meta { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+  .card-role { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  .card-year { font-size: 0.7rem; color: var(--muted); }
+  .card-title { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text); line-height: 1.2; }
+  .card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.7; flex: 1; }
+  .card-contributions-title { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .contributions-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .contrib-tag { font-size: 0.68rem; padding: 0.2rem 0.55rem; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2); color: var(--accent3); }
+  .card-footer { display: flex; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .platform-icons { display: flex; gap: 0.5rem; margin-top: 0.25rem; }
+  .plat { font-size: 0.65rem; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em; }
+
+  .btn-sm { padding: 0.5rem 1rem; font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.05em; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s; border: none; }
+  .btn-sm-accent { background: var(--accent); color: #fff; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); }
+  .btn-sm-accent:hover { background: #ff6b85; transform: translateY(-1px); }
+  .btn-sm-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); }
+  .btn-sm-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+  #contact { border-top: 1px solid var(--border); max-width: 1100px; margin: 0 auto; padding: 7rem 3rem; text-align: center; }
+  #contact h2 { margin-bottom: 1rem; }
+  .contact-desc { color: var(--muted); font-size: 0.88rem; max-width: 500px; margin: 0 auto 3rem; }
+  .contact-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link { display: flex; align-items: center; gap: 0.5rem; color: var(--muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.05em; padding: 0.8rem 1.5rem; border: 1px solid var(--border); transition: all 0.2s; }
+  .contact-link:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+
+  footer { border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.75rem; }
+
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 500; backdrop-filter: blur(8px); padding: 2rem; overflow-y: auto; align-items: flex-start; justify-content: center; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--card); border: 1px solid var(--border); max-width: 680px; width: 100%; margin: auto; position: relative; animation: fadeUp 0.3s ease; }
+  .modal-header { padding: 2rem 2rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; }
+  .modal-title { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; }
+  .modal-close { background: none; border: 1px solid var(--border); color: var(--muted); font-size: 1rem; cursor: pointer; padding: 0.3rem 0.6rem; transition: all 0.2s; }
+  .modal-close:hover { color: var(--accent); border-color: var(--accent); }
+  .modal-body { padding: 2rem; }
+  .modal-section-title { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; margin-top: 1.5rem; }
+  .modal-section-title:first-child { margin-top: 0; }
+  .modal-body p { color: var(--muted); font-size: 0.88rem; line-height: 1.8; }
+  .modal-footer { padding: 1.5rem 2rem; border-top: 1px solid var(--border); display: flex; gap: 1rem; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.72rem; }
+    h1 { font-size: 2.8rem; }
+    .hero { padding: 6rem 1.5rem 3rem; }
+    .hero-stats { position: static; flex-direction: row; margin-top: 2.5rem; gap: 1.5rem; }
+    .stat { text-align: left; }
+    .stat-num { font-size: 1.8rem; }
+    #about { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    #projects { padding: 4rem 1.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    #contact { padding: 4rem 1.5rem; }
+    .contact-links { flex-direction: column; align-items: center; }
+    .contact-link { width: 100%; max-width: 320px; justify-content: center; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+    footer span:last-child { display: none; }
+    .modal-overlay { padding: 1rem; }
+  }
+
+  @media (max-width: 400px) {
+    h1 { font-size: 2.2rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">SANTI<span>.</span>M</a>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Estudiante de Desarrollo de Videojuegos</div>
+    <h1>
+      GAME<br>
+      <span class="line2">DESIGNER</span><br>
+      <span class="accent-word">&amp; BUILDER</span>
+    </h1>
+    <p class="hero-desc">Diseño mundos que atraen, mecánicas que enganchan y experiencias que los jugadores no olvidan. Desde horror atmosférico hasta plataformers pixel art.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">▶ Ver proyectos</a>
+      <a href="https://santiagomastroberti.itch.io" target="_blank" class="btn btn-ghost">itch.io →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num" id="stat-projects">0</span><span class="stat-label">Proyectos</span></div>
+    <div class="stat"><span class="stat-num" id="stat-genres">0</span><span class="stat-label">Géneros</span></div>
+    <div class="stat"><span class="stat-num" id="stat-colabs">0</span><span class="stat-label">Colaboraciones</span></div>
+  </div>
+</div>
+
+<div id="about">
+  <div class="about-text">
+    <div class="section-label">Sobre mí</div>
+    <h2>Creo juegos<br>que <em>dejan</em><br><em>huella</em></h2>
+    <p>Soy <strong>Santiago Mastroberti</strong>, estudiante de desarrollo de videojuegos con experiencia práctica en múltiples géneros: horror, plataformers, acción, simulación y más.</p>
+    <p>Me especializo en diseño de mecánicas, narrativa y la dirección general de proyectos indie en equipo. Cada juego que hago es una oportunidad de explorar nuevas ideas y llevarlas al límite.</p>
+    <p>Trabajo con <strong>Unity</strong> y <strong>Unreal Engine</strong>, y uso <strong>Figma y Miro</strong> para prototipar y documentar antes de tocar una línea de código.</p>
+    <div class="philosophy-box">"Un buen juego no se recuerda por sus gráficos — se recuerda por cómo te hizo sentir. Diseño desde ahí."</div>
+  </div>
+  <div class="about-skills">
+    <div class="section-label">Habilidades</div>
+    <div class="skills-grid">
+      <div class="skill-chip"><span class="dot"></span>Diseño de mecánicas</div>
+      <div class="skill-chip"><span class="dot"></span>Narrativa &amp; worldbuilding</div>
+      <div class="skill-chip"><span class="dot"></span>Diseño de niveles</div>
+      <div class="skill-chip"><span class="dot"></span>Horror atmosférico</div>
+      <div class="skill-chip"><span class="dot"></span>Pixel art &amp; 2D</div>
+      <div class="skill-chip"><span class="dot"></span>Diseño de puzzles</div>
+      <div class="skill-chip"><span class="dot"></span>Trabajo en equipo</div>
+      <div class="skill-chip"><span class="dot"></span>Gestión de proyecto</div>
+      <div class="skill-chip"><span class="dot"></span>Prototipado rápido</div>
+      <div class="skill-chip"><span class="dot"></span>Diseño de sistemas</div>
+    </div>
+    <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:1rem;margin-top:1.5rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase">Herramientas</h3>
+    <div class="tools-list">
+      <span class="tool-tag">Unity</span>
+      <span class="tool-tag">Unreal Engine</span>
+      <span class="tool-tag">Figma</span>
+      <span class="tool-tag">Miro</span>
+      <span class="tool-tag">C#</span>
+      <span class="tool-tag">Blueprints</span>
+      <span class="tool-tag">itch.io</span>
+      <span class="tool-tag">Git</span>
+    </div>
+  </div>
+</div>
+
+<section id="projects" style="border-top:1px solid var(--border);max-width:1100px;margin:0 auto;padding:7rem 3rem">
+  <div class="section-label">Portfolio</div>
+  <h2>Proyectos</h2>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProjects('all',this)">Todos</button>
+    <button class="filter-btn" onclick="filterProjects('Horror',this)">Horror</button>
+    <button class="filter-btn" onclick="filterProjects('Acción',this)">Acción</button>
+    <button class="filter-btn" onclick="filterProjects('Plataformas',this)">Plataformas</button>
+    <button class="filter-btn" onclick="filterProjects('Simulación',this)">Simulación</button>
+    <button class="filter-btn" onclick="filterProjects('Puzzle',this)">Puzzle</button>
+  </div>
+  <div class="projects-grid" id="projects-grid"></div>
+</section>
+
+<div id="contact">
+  <div class="section-label" style="justify-content:center">Contacto</div>
+  <h2>¿Trabajamos<br>juntos?</h2>
+  <p class="contact-desc">Estoy abierto a colaboraciones, proyectos en equipo y oportunidades en la industria. Si te interesa mi trabajo, escribime.</p>
+  <div class="contact-links">
+    <a href="mailto:santimastroberti@hotmail.com" class="contact-link">✉ santimastroberti@hotmail.com</a>
+    <a href="https://santiagomastroberti.itch.io" target="_blank" class="contact-link">🎮 itch.io</a>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Santiago Mastroberti — Game Designer</span>
+  <span style="color:var(--border)">Hecho con código, pasión y muchas horas de playtesting</span>
+</footer>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="card-role" id="modal-role"></div>
+        <div class="modal-title" id="modal-title"></div>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer" id="modal-footer"></div>
+  </div>
+</div>
+
+<script>
+var projects = [
+  {id:1,title:"Goblin Tavern",year:"2025",genre:"Simulación",role:"Game Designer & Co-developer",icon:"🍺",status:"dev",statusLabel:"En desarrollo",platforms:["Windows"],shortDesc:"Simulador de cocina y gestión en tiempo real donde controlás a un goblin que administra una taberna llena de criaturas hambrientas.",fullDesc:"Goblin Tavern es un cooking & management simulator donde el jugador gestiona una taberna fantasy en tiempo real. El juego combina mecánicas de preparación de recetas, atención al cliente y administración de recursos con una economía interna para mejorar el local. Proyecto en colaboración con ValenVbucks y Josuke03.",contributions:["Diseño de sistemas","Economía interna","Diseño de clientes","Mecánicas de cocina"],whatIDid:["Diseño del sistema de recetas y pasos de cocción","Creación de la variedad de clientes con paciencia y recompensas distintas","Sistema de economía: ingresos de oro y mejoras del local","Diseño de flujo de juego y loop principal","Colaboración en la documentación de diseño del proyecto"],itchUrl:"https://valenvbucks.itch.io/goblin-tavern"},
+  {id:2,title:"The Morning After",year:"2024",genre:"Acción",role:"Game Designer & Co-developer",icon:"🧟",status:"released",statusLabel:"Lanzado",platforms:["Windows"],shortDesc:"Shooter en tercera persona post-apocalíptico con zombies, autoconsciencia y una carta de disculpa incluida.",fullDesc:"The Morning After es un shooter en tercera persona ambientado en un mundo post-apocalíptico. El juego abraza conscientemente su naturaleza indie con humor y autorreferencia. Co-desarrollado con ValenVbucks.",contributions:["Diseño de niveles","Narrativa","Diseño de combate","Humor & tono"],whatIDid:["Diseño del flujo de combate y mecánicas de disparo","Creación del tono narrativo autoconsiente y humorístico","Diseño de los espacios de juego en un mundo post-apocalíptico","Coordinación del equipo de desarrollo","Testing y ajuste de la experiencia de juego"],itchUrl:"https://santiagomastroberti.itch.io/the-morning-after"},
+  {id:3,title:"Hunting Hum",year:"2024",genre:"Horror",role:"Game Designer & Co-developer",icon:"🔦",status:"released",statusLabel:"Lanzado",platforms:["Windows"],shortDesc:"Horror de supervivencia en primera persona. Sos un policía atrapado en una casa con un asesino serial. Valorado 5.0/5 en itch.io.",fullDesc:"Hunting Hum es un survival horror en primera persona que invierte el rol clásico de detective. El jugador, un policía sin armas, debe resolver puzzles para escapar de un asesino psicópata. Valorado 5.0/5 en itch.io. Desarrollado con Lucas Coceres, Santiago Vivas y Lucas Magdalena.",contributions:["Diseño de puzzles","Atmósfera","Horror design","Narrativa"],whatIDid:["Diseño de los puzzles de escape dentro de la casa","Construcción de la atmósfera de terror y tensión","Diseño del comportamiento e IA del asesino","Desarrollo de la narrativa de supervivencia","Playtesting enfocado en fear factor y dificultad"],itchUrl:"https://santiagomastroberti.itch.io/hunting-hum"},
+  {id:4,title:"Meteor Madness",year:"2024",genre:"Acción",role:"Game Designer & Developer",icon:"🚀",status:"released",statusLabel:"Lanzado",platforms:["PC"],shortDesc:"Shooter espacial 2D con pixel art. Sobrevivís oleadas de meteoros y naves enemigas mientras mejorás tu nave con upgrades.",fullDesc:"Meteor Madness es un arcade shooter 2D de pixel art ambientado en el espacio. El jugador pilotea una nave y enfrenta olas de meteoros y naves enemigas. El sistema de upgrades permite personalizar la experiencia. Desarrollado íntegramente por Santiago Mastroberti.",contributions:["Diseño completo","Pixel art","Sistema de upgrades","Balanceo"],whatIDid:["Diseño completo del juego desde cero","Sistema de oleadas de enemigos con dificultad progresiva","Sistema de upgrades y power-ups personalizable","Diseño visual en pixel art","Balanceo de dificultad y curva de progresión"],itchUrl:"https://santiagomastroberti.itch.io/meteor-madness"},
+  {id:5,title:"AstroUP",year:"2023",genre:"Plataformas",role:"Game Designer & Co-developer",icon:"👨‍🚀",status:"proto",statusLabel:"Prototipo",platforms:["Windows"],shortDesc:"Plataformer 2D roguelite. Sos un astronauta que sube plataformas combatiendo enemigos y comprando upgrades. Valorado 5.0/5 en itch.io.",fullDesc:"AstroUP es un plataformer 2D pixel art con elementos roguelite. El jugador controla a un astronauta que debe escalar niveles derrotando enemigos y acumulando monedas. Valorado 5.0/5 en itch.io. Desarrollado con Lucas Coceres, Demian Galvez, Santiago Vivas y Agustina Rodriguez.",contributions:["Diseño de plataformas","Sistema de monedas","Progresión","Diseño de enemigos"],whatIDid:["Diseño de la progresión vertical y layout de niveles","Sistema de economía de monedas y tienda de upgrades","Diseño de tipos de enemigos con comportamientos distintos","Coordinación del equipo de 5 personas","Documentación del diseño del prototipo"],itchUrl:"https://luqui1004.itch.io/astroup"},
+  {id:6,title:"La Venganza de Vernon",year:"2023",genre:"Plataformas",role:"Game Designer & Developer (solo)",icon:"🧙",status:"dev",statusLabel:"En desarrollo",platforms:["PC"],shortDesc:"Plataformer 2D de fantasía. Un mago busca venganza contra el reino que masacró a su pueblo. Narrativa épica y alta dificultad.",fullDesc:"La Venganza de Vernon es mi proyecto más narrativo y personal. Es un plataformer 2D donde controlás a Vermon, un mago que busca infiltrarse en el reino enemigo para vengar a su pueblo. Desarrollado íntegramente por Santiago Mastroberti en Unity.",contributions:["Diseño completo","Narrativa & worldbuilding","Diseño de combate","Arte 2D"],whatIDid:["Creación del universo narrativo: dos reinos, historia de guerra y motivación del protagonista","Diseño de mecánicas de combate mágico","Diseño de niveles con alta dificultad progresiva","Arte y animaciones 2D del personaje","Gestión completa del proyecto como desarrollador en solitario"],itchUrl:"https://santiagomastroberti.itch.io/la-venganza-de-vernon"}
+];
+
+var statusClass = {released:'badge-released',dev:'badge-dev',proto:'badge-proto'};
+
+function renderProjects(filter) {
+  var grid = document.getElementById('projects-grid');
+  var filtered = filter === 'all' ? projects : projects.filter(function(p){return p.genre===filter;});
+  var html = '';
+  for (var i = 0; i < filtered.length; i++) {
+    var p = filtered[i];
+    var plats = p.platforms.map(function(pl){return '<span class="plat">'+pl+'</span>';}).join('');
+    var contribs = p.contributions.map(function(c){return '<span class="contrib-tag">'+c+'</span>';}).join('');
+    html += '<div class="project-card">' +
+      '<div class="card-thumb"><div class="card-thumb-pattern"><span class="card-thumb-icon">'+p.icon+'</span></div>' +
+      '<div class="card-genre-badge">'+p.genre+'</div>' +
+      '<div class="card-status-badge '+statusClass[p.status]+'">'+p.statusLabel+'</div></div>' +
+      '<div class="card-body">' +
+      '<div class="card-meta"><span class="card-role">'+p.role+'</span><span class="card-year">'+p.year+'</span></div>' +
+      '<div class="card-title">'+p.title+'</div>' +
+      '<div class="card-desc">'+p.shortDesc+'</div>' +
+      '<div class="platform-icons">'+plats+'</div>' +
+      '<div><div class="card-contributions-title">Areas de diseño</div><div class="contributions-list">'+contribs+'</div></div>' +
+      '<div class="card-footer">' +
+      '<button class="btn-sm btn-sm-ghost" onclick="openModal('+p.id+')">Ver detalle →</button>' +
+      '<a href="'+p.itchUrl+'" target="_blank" class="btn-sm btn-sm-accent">Ver en itch.io ↗</a>' +
+      '</div></div></div>';
+  }
+  grid.innerHTML = html;
+}
+
+function filterProjects(genre, btn) {
+  var btns = document.querySelectorAll('.filter-btn');
+  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+  btn.classList.add('active');
+  renderProjects(genre);
+}
+
+function openModal(id) {
+  var p = null;
+  for (var i = 0; i < projects.length; i++) { if (projects[i].id === id) { p = projects[i]; break; } }
+  document.getElementById('modal-role').textContent = p.role;
+  document.getElementById('modal-title').textContent = p.title;
+  var plats = p.platforms.map(function(pl){return '<span class="plat">'+pl+'</span>';}).join('');
+  var contribs = p.contributions.map(function(c){return '<span class="contrib-tag">'+c+'</span>';}).join('');
+  var items = p.whatIDid.map(function(item){return '<div style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.85rem;color:var(--muted)"><span style="color:var(--accent);flex-shrink:0">▹</span><span>'+item+'</span></div>';}).join('');
+  document.getElementById('modal-body').innerHTML =
+    '<div class="modal-section-title">Descripción del proyecto</div><p>'+p.fullDesc+'</p>' +
+    '<div class="modal-section-title">Lo que hice específicamente</div><div style="display:flex;flex-direction:column;gap:0.5rem">'+items+'</div>' +
+    '<div class="modal-section-title">Plataformas</div><div class="platform-icons">'+plats+'</div>' +
+    '<div class="modal-section-title">Areas de diseño</div><div class="contributions-list">'+contribs+'</div>';
+  document.getElementById('modal-footer').innerHTML = '<a href="'+p.itchUrl+'" target="_blank" class="btn-sm btn-sm-accent">Ver en itch.io ↗</a>';
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) { if (e.target === document.getElementById('modal-overlay')) closeModalDirect(); }
+function closeModalDirect() { document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow = ''; }
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModalDirect(); });
+
+function animateCounter(el, target, suffix) {
+  suffix = suffix || '';
+  var current = 0, step = target / 40;
+  var timer = setInterval(function(){
+    current = Math.min(current + step, target);
+    el.textContent = Math.round(current) + suffix;
+    if (current >= target) clearInterval(timer);
+  }, 30);
+}
+
+window.addEventListener('load', function(){
+  renderProjects('all');
+  setTimeout(function(){
+    animateCounter(document.getElementById('stat-projects'), 6);
+    animateCounter(document.getElementById('stat-genres'), 5);
+    animateCounter(document.getElementById('stat-colabs'), 4, '+');
+  }, 500);
+});
+</script>
+</body>
+</html>
