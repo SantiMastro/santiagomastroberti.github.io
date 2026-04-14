@@ -4,12 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Santiago Mastroberti — Game Designer</title>
-<meta name="description" content="Portfolio de Santiago Mastroberti, Game Designer. Proyectos de horror, plataformers, acción y simulación.">
-<meta property="og:title" content="Santiago Mastroberti — Game Designer">
-<meta property="og:description" content="Diseño mundos que atraen, mecánicas que enganchan y experiencias que los jugadores no olvidan.">
+<meta name="description" content="Portfolio de Santiago Mastroberti, Game Designer especializado en horror, plataformers y simulación. 6 juegos publicados en itch.io.">
+<meta name="keywords" content="game designer, diseño de videojuegos, horror, Unity, UADE, portfolio, indie">
+<meta name="author" content="Santiago Mastroberti">
+<meta name="robots" content="index, follow">
+<!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://santimastro.github.io/santiagomastroberti.github.io/">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Santiago Mastroberti — Game Designer">
+<meta property="og:description" content="Portfolio de Santiago Mastroberti, Game Designer. 6 juegos publicados, especializado en horror atmosférico, plataformers y simulación.">
+<meta property="og:image" content="https://img.itch.zone/aW1hZ2UvMjQzNzAzNy8xNDQ0Mjk3My5wbmc=/original/Fdslcy.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Santiago Mastroberti — Game Designer">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Santiago Mastroberti — Game Designer">
+<meta name="twitter:description" content="6 juegos publicados. Especializado en horror, plataformers y simulación. Portfolio completo acá.">
+<meta name="twitter:image" content="https://img.itch.zone/aW1hZ2UvMjQzNzAzNy8xNDQ0Mjk3My5wbmc=/original/Fdslcy.png">
+<!-- LinkedIn -->
+<meta property="linkedin:owner" content="santiago-mastroberti-6b5966258">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -224,89 +239,376 @@
   .preview-modal-actions { display:flex; gap:0.75rem; align-items:center; }
   @media(max-width:768px){ .docs-grid{grid-template-columns:1fr;} #docs{padding:4rem 1.5rem;} }
 
+
+  /* LIGHT MODE */
+  body.light {
+    --bg: #f0f0f5; --surface: #e2e2ec; --card: #ffffff; --border: #d0d0e0;
+    --text: #1a1a2e; --muted: #5050a0;
+  }
+  body.light nav { background: rgba(240,240,245,0.92); }
+  body.light .hero-bg { background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(124,58,237,0.08) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 60%, rgba(255,77,109,0.06) 0%, transparent 70%); }
+  body.light .skill-chip { background: #fff; }
+  body.light .tool-tag { background: rgba(124,58,237,0.08); }
+  body.light .project-card { background: #fff; }
+  body.light .card-body { background: #fff; }
+  body.light .modal { background: #fff; }
+  body.light .doc-card { background: #fff; }
+  body.light .doc-preview-wrap { background: #e8e8f0; }
+  body.light #about { background: transparent; }
+  body.light .philosophy-box { background: rgba(255,77,109,0.04); }
+  body.light .form-input, body.light .form-textarea { background: #fff; color: #1a1a2e; border-color: #c0c0d8; }
+  body.light .filter-btn { color: #5050a0; border-color: #c0c0d8; }
+  body.light .btn-ghost { color: #1a1a2e; border-color: #c0c0d8; }
+  body.light h1 .line2 { -webkit-text-stroke: 1px rgba(26,26,46,0.25); }
+  body.light footer { background: transparent; }
+
+  /* THEME TOGGLE BTN */
+  #theme-toggle { background: none; border: 1px solid var(--border); color: var(--muted); font-size: 1rem; cursor: pointer; padding: 0.3rem 0.6rem; border-radius: 4px; transition: all 0.2s; line-height: 1; }
+  #theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* LANG TOGGLE */
+  #lang-toggle { background: none; border: 1px solid var(--border); color: var(--muted); font-size: 0.72rem; cursor: pointer; padding: 0.3rem 0.7rem; letter-spacing: 0.08em; transition: all 0.2s; font-family: 'Space Mono', monospace; }
+  #lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* CV DOWNLOAD */
+  .cv-download-wrap { display: flex; gap: 0.75rem; margin-top: 2rem; flex-wrap: wrap; }
+  .cv-dl-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.4rem; font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; cursor: pointer; border: none; text-decoration: none; transition: all 0.25s; }
+  .cv-dl-btn-primary { background: var(--accent); color: #fff; clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px)); }
+  .cv-dl-btn-primary:hover { background: #ff6b85; transform: translateY(-2px); }
+  .cv-dl-btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px)); }
+  .cv-dl-btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+
+  /* SCROLL PROGRESS BAR */
+  #scroll-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent2)); z-index: 9999; transition: width 0.05s linear; }
+
+  /* cursor removed */
+
+  /* PROCESO DE DISEÑO */
+  #proceso { border-top: 1px solid var(--border); max-width: 1100px; margin: 0 auto; padding: 7rem 3rem; }
+  @media (max-width: 768px) { #proceso { padding: 4rem 1.5rem; } }
+  .tl-wrap { position: relative; margin-top: 2.5rem; }
+  .tl-spine { position: absolute; left: 19px; top: 20px; bottom: 20px; width: 2px; background: var(--border); }
+  .tl-spine-fill { position: absolute; left: 19px; top: 20px; width: 2px; background: var(--accent); height: 0; transition: height 0.5s ease; }
+  .tl-item { display: flex; gap: 20px; margin-bottom: 6px; cursor: pointer; }
+  .tl-icon-wrap { flex-shrink: 0; width: 40px; height: 40px; position: relative; z-index: 1; }
+  .tl-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--card); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+  .tl-icon svg { width: 18px; height: 18px; stroke: var(--muted); transition: stroke 0.3s; }
+  .tl-item.active .tl-icon { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 5px rgba(255,77,109,0.15); transform: scale(1.1); }
+  .tl-item.active .tl-icon svg { stroke: #fff; }
+  .tl-item.done .tl-icon { background: rgba(255,77,109,0.1); border-color: var(--accent); }
+  .tl-item.done .tl-icon svg { stroke: var(--accent); }
+  .tl-content { flex: 1; }
+  .tl-header { display: flex; align-items: center; gap: 10px; padding: 9px 0; }
+  .tl-step-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); transition: color 0.3s; }
+  .tl-item.active .tl-step-title { color: var(--accent); }
+  .tl-chev { margin-left: auto; width: 16px; height: 16px; stroke: var(--muted); transition: transform 0.3s; flex-shrink: 0; }
+  .tl-item.active .tl-chev { transform: rotate(180deg); stroke: var(--accent); }
+  .tl-body { overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.4s ease, opacity 0.3s ease; }
+  .tl-item.active .tl-body { max-height: 300px; opacity: 1; }
+  .tl-inner { padding: 4px 0 18px; }
+  .tl-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin: 0 0 12px; }
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+  .tl-tag { font-size: 0.68rem; padding: 2px 8px; border-radius: 3px; background: var(--card); border: 1px solid var(--border); color: var(--muted); }
+  .tl-tag.hot { background: rgba(255,77,109,0.08); border-color: rgba(255,77,109,0.3); color: var(--accent); }
+  .tl-deliverable { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 8px 12px; font-size: 0.78rem; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .tl-deliverable svg { width: 14px; height: 14px; stroke: var(--accent); flex-shrink: 0; }
+  .tl-progress-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+  .tl-progress-bar { flex: 1; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .tl-progress-fill { height: 100%; background: var(--accent); border-radius: 2px; width: 0%; transition: width 0.4s ease; }
+  .tl-progress-label { font-size: 0.72rem; color: var(--muted); min-width: 36px; text-align: right; font-family: 'Space Mono', monospace; }
+  .tl-nav { display: flex; gap: 8px; margin-top: 1.5rem; }
+  .tl-nav button { flex: 1; font-family: 'Space Mono', monospace; font-size: 0.75rem; padding: 0.6rem; cursor: pointer; transition: all 0.2s; border-radius: 2px; }
+  .tl-btn-prev { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+  .tl-btn-prev:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .tl-btn-next { background: var(--accent); border: none; color: #fff; font-weight: 700; }
+  .tl-btn-next:hover:not(:disabled) { background: #ff6b85; }
+  .tl-btn-prev:disabled, .tl-btn-next:disabled { opacity: 0.3; cursor: not-allowed; }
+  .tl-evidence { margin-top: 1.5rem; background: var(--card); border: 1px solid var(--border); padding: 1rem 1.25rem; border-radius: 4px; }
+  .tl-evidence-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .tl-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tl-pill { display: flex; align-items: center; gap: 5px; font-size: 0.75rem; color: var(--muted); background: var(--surface); border: 1px solid var(--border); padding: 4px 10px; transition: all 0.3s; opacity: 0.4; }
+  .tl-pill.lit { opacity: 1; border-color: rgba(255,77,109,0.4); color: var(--text); }
+  .tl-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+
+  /* PAGE TRANSITION */
+  .page-transition { position: fixed; inset: 0; background: var(--bg); z-index: 10000; pointer-events: none; opacity: 1; transition: opacity 0.5s ease; }
+  .page-transition.done { opacity: 0; }
+
+  /* CUSTOM CURSOR */
+  body { cursor: none; }
+  #cur { position: fixed; pointer-events: none; z-index: 9998; transition: opacity 0.3s; }
+  #cur svg { overflow: visible; }
+  .cur-dot { transition: transform 0.15s ease; transform-origin: 12px 12px; }
+  body.cur-hover .cur-dot { transform: scale(1.6); }
+  body.cur-click .cur-dot { transform: scale(0.5); }
+  @media (hover: none) { body { cursor: auto; } #cur { display: none; } }
+
+  /* SOUND TOGGLE */
+  #sound-toggle { background: none; border: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; cursor: pointer; padding: 0.3rem 0.6rem; border-radius: 4px; transition: all 0.2s; line-height: 1; }
+  #sound-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* GÉNEROS */
+  #generos { border-top: 1px solid var(--border); }
+  .generos-inner { max-width: 1100px; margin: 0 auto; padding: 7rem 3rem; }
+  @media(max-width:768px){ .generos-inner { padding: 4rem 1.5rem; } }
+  .genre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+  .genre-card { background: var(--card); border: 1px solid var(--border); padding: 1.5rem; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
+  .genre-card:hover { transform: translateY(-3px); }
+  .genre-card::before { content: ''; position: absolute; bottom: 0; left: 0; height: 3px; background: var(--accent); transition: width 0.6s ease; width: 0; }
+  .genre-card.visible::before { width: var(--pct); }
+  .genre-card.fav { border-color: rgba(255,77,109,0.4); }
+  .genre-card.fav::after { content: ''; position: absolute; top: 10px; right: 10px; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(255,77,109,0.2); animation: pulse 2s infinite; }
+  .genre-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+  .genre-level-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .genre-projects { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--muted); margin-bottom: 0.75rem; }
+  .genre-dots { display: flex; gap: 5px; margin-bottom: 0.75rem; }
+  .gdot { width: 10px; height: 10px; border-radius: 2px; background: var(--border); transition: background 0.4s ease; }
+  .gdot.active { background: var(--accent); }
+  .genre-card.animate .gdot.active { animation: dotPop 0.3s ease both; }
+  @keyframes dotPop { 0%{transform:scale(0)} 60%{transform:scale(1.3)} 100%{transform:scale(1)} }
+  .genre-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.75rem; }
+  .genre-bar-bg { display: none; }
+  .genre-bar-fill { display: none; }
+  .genre-fav-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(255,77,109,0.3); padding: 2px 7px; margin-top: 0.5rem; }
+
+  /* FAQ */
+  #faq { border-top: 1px solid var(--border); }
+  .faq-inner { max-width: 1100px; margin: 0 auto; padding: 7rem 3rem; }
+  @media(max-width:768px){ .faq-inner { padding: 4rem 1.5rem; } }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
+  @media(max-width:640px){ .faq-grid { grid-template-columns: 1fr; } }
+  .faq-item { background: var(--card); padding: 1.75rem; transition: background 0.2s; cursor: pointer; }
+  .faq-item:hover { background: rgba(255,77,109,0.04); }
+  .faq-q { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; display: flex; align-items: flex-start; gap: 0.6rem; }
+  .faq-q::before { content: '?'; color: var(--accent); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .faq-a { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+  .faq-a strong { color: var(--text); }
+  .faq-a a { color: var(--accent); text-decoration: none; }
+  .faq-a a:hover { text-decoration: underline; }
+
+  /* TOAST */
+  #toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--card); border: 1px solid var(--border); color: var(--text); font-family: 'Space Mono', monospace; font-size: 0.75rem; padding: 0.6rem 1.2rem; z-index: 9000; opacity: 0; transition: all 0.3s ease; pointer-events: none; white-space: nowrap; }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
 </style>
 </head>
 <body>
 
+<div class="page-transition" id="pg-transition"></div>
+<div id="scroll-bar"></div>
+<div id="toast"></div>
+<div id="cur"><svg width="24" height="24" viewBox="0 0 24 24"><circle class="cur-dot" cx="12" cy="12" r="5" fill="#ff4d6d" fill-opacity="0.9"/><circle cx="12" cy="12" r="10" fill="none" stroke="#ff4d6d" stroke-width="1" stroke-opacity="0.4"/></svg></div>
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src="" alt=""></div>
 
 <nav>
   <a href="#" class="nav-logo">SANTI<span>.</span>M</a>
   <ul class="nav-links">
-    <li><a href="#about">Sobre mí</a></li>
-    <li><a href="#projects">Proyectos</a></li>
-    <li><a href="#docs">Docs</a></li><li><a href="#contact">Contacto</a></li>
+    <li><a href="#about" class="nav-i18n" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+    <li><a href="#proceso" class="nav-i18n" data-es="Proceso" data-en="Process">Proceso</a></li><li><a href="#projects" class="nav-i18n" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+    <li><a href="#docs" class="nav-i18n" data-es="Docs" data-en="Docs">Docs</a></li><li><a href="#generos" class="nav-i18n" data-es="Géneros" data-en="Genres">Géneros</a></li><li><a href="#faq" class="nav-i18n" data-es="FAQ" data-en="FAQ">FAQ</a></li>
+    <li><a href="#contact" class="nav-i18n" data-es="Contacto" data-en="Contact">Contacto</a></li>
+  </ul>
+  <div style="display:flex;gap:0.6rem;align-items:center;">
+    <button id="sound-toggle" onclick="toggleSound()" title="Sound">🔇</button>
+    <button id="lang-toggle" onclick="toggleLang()">EN</button>
+    <button id="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+  </div>
+  <ul style="display:none">
   </ul>
 </nav>
 
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-tag">Estudiante de Desarrollo de Videojuegos</div>
+    <div class="hero-tag i18n" data-es="Estudiante de Desarrollo de Videojuegos" data-en="Video Game Development Student">Estudiante de Desarrollo de Videojuegos</div>
     <h1>GAME<br><span class="line2">DESIGNER</span><br><span class="accent-word">&amp; BUILDER</span></h1>
-    <p class="hero-desc">Diseño mundos que atraen, mecánicas que enganchan y experiencias que los jugadores no olvidan. Desde horror atmosférico hasta plataformers pixel art.</p>
+    <p class="hero-desc i18n" data-es="Diseño mundos que atraen, mecánicas que enganchan y experiencias que los jugadores no olvidan. Desde horror atmosférico hasta plataformers pixel art." data-en="I design compelling worlds, engaging mechanics and unforgettable experiences. From atmospheric horror to pixel art platformers.">Diseño mundos que atraen, mecánicas que enganchan y experiencias que los jugadores no olvidan. Desde horror atmosférico hasta plataformers pixel art.</p>
     <div class="hero-ctas">
-      <a href="#projects" class="btn btn-primary">▶ Ver proyectos</a>
+      <a href="#projects" class="btn btn-primary i18n" data-es="▶ Ver proyectos" data-en="▶ View projects">▶ Ver proyectos</a>
       <a href="https://santiagomastroberti.itch.io" target="_blank" class="btn btn-ghost">itch.io →</a>
     </div>
   </div>
   <div class="hero-stats">
-    <div class="stat"><span class="stat-num" id="stat-projects">0</span><span class="stat-label">Proyectos</span></div>
-    <div class="stat"><span class="stat-num" id="stat-downloads">0</span><span class="stat-label">Descargas</span></div>
-    <div class="stat"><span class="stat-num" id="stat-views">0</span><span class="stat-label">Vistas</span></div>
+    <div class="stat"><span class="stat-num" id="stat-projects">0</span><span class="stat-label i18n" data-es="Proyectos" data-en="Projects">Proyectos</span></div>
+    <div class="stat"><span class="stat-num" id="stat-downloads">0</span><span class="stat-label i18n" data-es="Descargas" data-en="Downloads">Descargas</span></div>
+    <div class="stat"><span class="stat-num" id="stat-views">0</span><span class="stat-label i18n" data-es="Vistas" data-en="Views">Vistas</span></div>
   </div>
 </div>
 
 <div class="global-stats reveal">
-  <div class="gstat"><span class="gstat-num">1.114</span><span class="gstat-label">Vistas en itch.io</span></div>
-  <div class="gstat"><span class="gstat-num">242</span><span class="gstat-label">Descargas totales</span></div>
-  <div class="gstat"><span class="gstat-num">6</span><span class="gstat-label">Juegos publicados</span></div>
-  <div class="gstat"><span class="gstat-num">5★</span><span class="gstat-label">Rating Hunting Hum &amp; AstroUP</span></div>
+  <div class="gstat"><span class="gstat-num" id="gstat-views">1.114</span><span class="gstat-label i18n" data-es="Vistas en itch.io" data-en="Views on itch.io">Vistas en itch.io</span></div>
+  <div class="gstat"><span class="gstat-num" id="gstat-dl">242</span><span class="gstat-label i18n" data-es="Descargas totales" data-en="Total Downloads">Descargas totales</span></div>
+  <div class="gstat"><span class="gstat-num" id="gstat-games">6</span><span class="gstat-label i18n" data-es="Juegos publicados" data-en="Published Games">Juegos publicados</span></div>
+  <div class="gstat"><span class="gstat-num">5★</span><span class="gstat-label i18n" data-es="Rating Hunting Hum &amp; AstroUP" data-en="Rating Hunting Hum &amp; AstroUP">Rating Hunting Hum &amp; AstroUP</span></div>
 </div>
 
 <div id="about">
   <div class="about-text reveal">
-    <div class="section-label">Sobre mí</div>
-    <h2>Creo juegos<br>que <em>dejan</em><br><em>huella</em></h2>
-    <p>Soy <strong>Santiago Mastroberti</strong>, estudiante de desarrollo de videojuegos con experiencia práctica en múltiples géneros: horror, plataformers, acción, simulación y más.</p>
-    <p>Me especializo en diseño de mecánicas, narrativa y la dirección general de proyectos indie en equipo. Cada juego que hago es una oportunidad de explorar nuevas ideas y llevarlas al límite.</p>
-    <p>Trabajo con <strong>Unity</strong> y <strong>Unreal Engine</strong>, y uso <strong>Figma y Miro</strong> para prototipar y documentar antes de tocar una línea de código.</p>
-    <div class="philosophy-box">"Un buen juego no se recuerda por sus gráficos — se recuerda por cómo te hizo sentir. Diseño desde ahí."</div>
+    <div class="section-label i18n" data-es="Sobre mí" data-en="About me">Sobre mí</div>
+    <h2 class="i18n" data-es="Creo juegos<br>que <em>dejan</em><br><em>huella</em>" data-en="I create games<br>that <em>leave</em><br><em>a mark</em>">Creo juegos<br>que <em>dejan</em><br><em>huella</em></h2>
+    <p class="i18n" data-es="Soy <strong>Santiago Mastroberti</strong>, estudiante de desarrollo de videojuegos con experiencia práctica en múltiples géneros: horror, plataformers, acción, simulación y más." data-en="I'm <strong>Santiago Mastroberti</strong>, a video game development student with hands-on experience across multiple genres: horror, platformers, action, simulation and more.">Soy <strong>Santiago Mastroberti</strong>, estudiante de desarrollo de videojuegos con experiencia práctica en múltiples géneros: horror, plataformers, acción, simulación y más.</p>
+    <p class="i18n" data-es="Me especializo en diseño de mecánicas, narrativa y la dirección general de proyectos indie en equipo. Cada juego que hago es una oportunidad de explorar nuevas ideas y llevarlas al límite." data-en="I specialize in mechanics design, narrative and general direction of indie team projects. Every game I make is an opportunity to explore new ideas and push them to the limit.">Me especializo en diseño de mecánicas, narrativa y la dirección general de proyectos indie en equipo. Cada juego que hago es una oportunidad de explorar nuevas ideas y llevarlas al límite.</p>
+    <p class="i18n" data-es="Trabajo con <strong>Unity</strong> y <strong>Unreal Engine</strong>, y uso <strong>Figma y Miro</strong> para prototipar y documentar antes de tocar una línea de código." data-en="I work with <strong>Unity</strong> and <strong>Unreal Engine</strong>, and use <strong>Figma and Miro</strong> to prototype and document before writing a single line of code.">Trabajo con <strong>Unity</strong> y <strong>Unreal Engine</strong>, y uso <strong>Figma y Miro</strong> para prototipar y documentar antes de tocar una línea de código.</p>
+    <div class="philosophy-box i18n" data-es="&quot;Un buen juego no se recuerda por sus gráficos — se recuerda por cómo te hizo sentir. Diseño desde ahí.&quot;" data-en="&quot;A great game is not remembered for its graphics — it's remembered for how it made you feel. That's where I design from.&quot;">"Un buen juego no se recuerda por sus gráficos — se recuerda por cómo te hizo sentir. Diseño desde ahí."</div>
+    <div class="cv-download-wrap">
+      <div style="font-size:0.72rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;width:100%" class="i18n" data-es="Descargar CV" data-en="Download CV">Descargar CV</div>
+      <a id="cv-dl-es" href="#" download="Santiago_Mastroberti_CV_ES.pdf" class="cv-dl-btn cv-dl-btn-primary i18n" data-es="↓ CV en Español" data-en="↓ CV in Spanish">↓ Español</a>
+      <a id="cv-dl-en" href="#" download="Santiago_Mastroberti_CV_EN.pdf" class="cv-dl-btn cv-dl-btn-ghost i18n" data-es="↓ CV en Inglés" data-en="↓ CV in English">↓ English</a>
+    </div>
   </div>
   <div class="about-skills reveal">
-    <div class="section-label">Habilidades</div>
+    <div class="section-label i18n" data-es="Habilidades" data-en="Skills">Habilidades</div>
     <div class="skills-grid">
-      <div class="skill-chip"><span class="dot"></span>Diseño de mecánicas</div>
-      <div class="skill-chip"><span class="dot"></span>Narrativa &amp; worldbuilding</div>
-      <div class="skill-chip"><span class="dot"></span>Diseño de niveles</div>
-      <div class="skill-chip"><span class="dot"></span>Horror atmosférico</div>
-      <div class="skill-chip"><span class="dot"></span>Pixel art &amp; 2D</div>
-      <div class="skill-chip"><span class="dot"></span>Diseño de puzzles</div>
-      <div class="skill-chip"><span class="dot"></span>Trabajo en equipo</div>
-      <div class="skill-chip"><span class="dot"></span>Gestión de proyecto</div>
-      <div class="skill-chip"><span class="dot"></span>Prototipado rápido</div>
-      <div class="skill-chip"><span class="dot"></span>Diseño de sistemas</div>
+      <div class="skill-chip"><span class="dot"></span><span class="i18n" data-es="Diseño de mecánicas" data-en="Mechanics Design">Diseño de mecánicas</span></div>
+      <div class="skill-chip"><span class="dot"></span><span class="i18n" data-es="Narrativa &amp; worldbuilding" data-en="Narrative &amp; Worldbuilding">Narrativa &amp; worldbuilding</span></div>
+      <div class="skill-chip"><span class="dot"></span><span class="i18n" data-es="Diseño de niveles" data-en="Level Design">Diseño de niveles</span></div>
+      <div class="skill-chip"><span class="dot"></span><span class="i18n" data-es="Horror atmosférico" data-en="Atmospheric Horror">Horror atmosférico</span></div>
+      <div class="skill-chip"><span class="dot"></span><span class="i18n" data-es="Pixel art &amp; 2D" data-en="Pixel Art &amp; 2D">Pixel art &amp; 2D</span></div>
+      <div class="skill-chip"><span class="dot"></span><span class="i18n" data-es="Diseño de puzzles" data-en="Puzzle Design">Diseño de puzzles</span></div>
+      <div class="skill-chip"><span class="dot"></span><span class="i18n" data-es="Trabajo en equipo" data-en="Team Collaboration">Trabajo en equipo</span></div>
+      <div class="skill-chip"><span class="dot"></span><span class="i18n" data-es="Gestión de proyecto" data-en="Project Management">Gestión de proyecto</span></div>
+      <div class="skill-chip"><span class="dot"></span><span class="i18n" data-es="Prototipado rápido" data-en="Rapid Prototyping">Prototipado rápido</span></div>
+      <div class="skill-chip"><span class="dot"></span><span class="i18n" data-es="Diseño de sistemas" data-en="Systems Design">Diseño de sistemas</span></div>
     </div>
-    <h3 style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:1rem;margin-top:1.5rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase">Herramientas</h3>
+    <h3 class="i18n" style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:1rem;margin-top:1.5rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase" data-es="Herramientas" data-en="Tools">Herramientas</h3>
     <div class="tools-list">
       <span class="tool-tag">Unity</span><span class="tool-tag">Unreal Engine</span><span class="tool-tag">Figma</span>
       <span class="tool-tag">Miro</span><span class="tool-tag">C#</span><span class="tool-tag">Blueprints</span>
-      <span class="tool-tag">itch.io</span><span class="tool-tag">Git</span>
+      <span class="tool-tag">itch.io</span><span class="tool-tag">Git</span><span class="tool-tag">Hack'n Plan</span>
     </div>
   </div>
 </div>
 
+
+<section id="proceso" style="border-top:1px solid var(--border)">
+<div style="max-width:1100px;margin:0 auto;padding:7rem 3rem">
+  <div class="section-label reveal i18n" data-es="Mi proceso" data-en="My process">Mi proceso</div>
+  <h2 class="reveal i18n" data-es="Cómo diseño un juego" data-en="How I design a game">Cómo diseño un juego</h2>
+  <p style="color:var(--muted);font-size:0.88rem;max-width:500px;margin-bottom:0;margin-top:-2rem" class="reveal i18n"
+     data-es="Hacé click en cada paso para ver qué hago en cada etapa."
+     data-en="Click each step to see what I do at each stage.">Hacé click en cada paso para ver qué hago en cada etapa.</p>
+
+  <div class="tl-progress-wrap reveal" style="margin-top:2rem">
+    <div class="tl-progress-bar"><div class="tl-progress-fill" id="tl-prog-fill"></div></div>
+    <div class="tl-progress-label" id="tl-prog-label">0 / 5</div>
+  </div>
+
+  <div class="tl-wrap reveal">
+    <div class="tl-spine"></div>
+    <div class="tl-spine-fill" id="tl-spine-fill"></div>
+
+    <div class="tl-item" data-tl="0" onclick="tlSelect(0)">
+      <div class="tl-icon-wrap"><div class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div></div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-step-title i18n" data-es="Concepto & pilares" data-en="Concept & pillars">Concepto & pilares</span>
+          <svg class="tl-chev" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="tl-body"><div class="tl-inner">
+          <p class="tl-desc i18n" data-es="Defino la idea central, el tono y los 3-4 pilares de diseño que guían cada decisión. Sin pilares claros, todo el equipo diseña en direcciones distintas." data-en="I define the core idea, tone and 3-4 design pillars that guide every decision. Without clear pillars, the whole team designs in different directions.">Defino la idea central, el tono y los 3-4 pilares de diseño que guían cada decisión. Sin pilares claros, todo el equipo diseña en direcciones distintas.</p>
+          <div class="tl-tags"><span class="tl-tag hot">Miro</span><span class="tl-tag i18n" data-es="Brainstorm" data-en="Brainstorm">Brainstorm</span><span class="tl-tag i18n" data-es="Referencias" data-en="References">Referencias</span><span class="tl-tag i18n" data-es="Mood board" data-en="Mood board">Mood board</span></div>
+          <div class="tl-deliverable"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span class="i18n" data-es="Entregable: pilares + referencias en Miro" data-en="Deliverable: pillars + references in Miro">Entregable: pilares + referencias en Miro</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tl-item" data-tl="1" onclick="tlSelect(1)">
+      <div class="tl-icon-wrap"><div class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div></div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-step-title i18n" data-es="Documentación & GDD" data-en="Documentation & GDD">Documentación & GDD</span>
+          <svg class="tl-chev" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="tl-body"><div class="tl-inner">
+          <p class="tl-desc i18n" data-es="Escribo el GDD y los spec docs de cada sistema antes de tocar código. Incluye mecánicas, estados, flujos, edge cases y criterios de completitud." data-en="I write the GDD and spec docs for each system before writing any code. Includes mechanics, states, flows, edge cases and completion criteria.">Escribo el GDD y los spec docs de cada sistema antes de tocar código. Incluye mecánicas, estados, flujos, edge cases y criterios de completitud.</p>
+          <div class="tl-tags"><span class="tl-tag hot">Spec Docs</span><span class="tl-tag hot">Hack'n Plan</span><span class="tl-tag">Figma</span><span class="tl-tag i18n" data-es="Diagramas" data-en="Diagrams">Diagramas</span></div>
+          <div class="tl-deliverable"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span class="i18n" data-es="Entregable: GDD completo + spec docs por sistema (ver sección Docs)" data-en="Deliverable: full GDD + spec docs per system (see Docs section)">Entregable: GDD completo + spec docs por sistema (ver sección Docs)</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tl-item" data-tl="2" onclick="tlSelect(2)">
+      <div class="tl-icon-wrap"><div class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div></div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-step-title i18n" data-es="Prototipo rápido" data-en="Rapid prototype">Prototipo rápido</span>
+          <svg class="tl-chev" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="tl-body"><div class="tl-inner">
+          <p class="tl-desc i18n" data-es="Construyo la versión más simple posible de la mecánica central para validar que se siente bien. Sin arte, sin audio — solo la sensación del loop." data-en="I build the simplest possible version of the core mechanic to validate it feels good. No art, no audio — just the feel of the loop.">Construyo la versión más simple posible de la mecánica central para validar que se siente bien. Sin arte, sin audio — solo la sensación del loop.</p>
+          <div class="tl-tags"><span class="tl-tag hot">Unity</span><span class="tl-tag">Greybox</span><span class="tl-tag i18n" data-es="Loop principal" data-en="Core loop">Loop principal</span></div>
+          <div class="tl-deliverable"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="i18n" data-es="Entregable: build jugable del loop principal, sin pulido" data-en="Deliverable: playable build of the core loop, no polish">Entregable: build jugable del loop principal, sin pulido</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tl-item" data-tl="3" onclick="tlSelect(3)">
+      <div class="tl-icon-wrap"><div class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div></div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-step-title i18n" data-es="Playtesting & ajuste" data-en="Playtesting & iteration">Playtesting & ajuste</span>
+          <svg class="tl-chev" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="tl-body"><div class="tl-inner">
+          <p class="tl-desc i18n" data-es="Sesiones con jugadores reales. Observo sin explicar nada. Registro qué funciona, qué confunde, qué aburre. Vuelvo al GDD, ajusto y repito tantas veces como haga falta." data-en="Sessions with real players. I observe without explaining anything. I log what works, what confuses, what bores. I go back to the GDD, adjust and repeat as many times as needed.">Sesiones con jugadores reales. Observo sin explicar nada. Registro qué funciona, qué confunde, qué aburre. Vuelvo al GDD, ajusto y repito tantas veces como haga falta.</p>
+          <div class="tl-tags"><span class="tl-tag hot i18n" data-es="Feedback" data-en="Feedback">Feedback</span><span class="tl-tag hot i18n" data-es="Balanceo" data-en="Balancing">Balanceo</span><span class="tl-tag i18n" data-es="Observación" data-en="Observation">Observación</span><span class="tl-tag i18n" data-es="Rediseño" data-en="Redesign">Rediseño</span></div>
+          <div class="tl-deliverable"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            <span class="i18n" data-es="Entregable: notas de sesión + lista de cambios priorizados" data-en="Deliverable: session notes + prioritized change list">Entregable: notas de sesión + lista de cambios priorizados</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tl-item" data-tl="4" onclick="tlSelect(4)">
+      <div class="tl-icon-wrap"><div class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg></div></div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-step-title i18n" data-es="Pulido & publicación" data-en="Polish & publish">Pulido & publicación</span>
+          <svg class="tl-chev" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="tl-body"><div class="tl-inner">
+          <p class="tl-desc i18n" data-es="Arte final, audio, juiciness y game feel. Página en itch.io con screenshots, descripción y trailer. El pulido amplifica lo que ya funciona — no salva lo que no funciona." data-en="Final art, audio, juiciness and game feel. itch.io page with screenshots, description and trailer. Polish amplifies what already works — it doesn't save what doesn't.">Arte final, audio, juiciness y game feel. Página en itch.io con screenshots, descripción y trailer. El pulido amplifica lo que ya funciona — no salva lo que no funciona.</p>
+          <div class="tl-tags"><span class="tl-tag hot">itch.io</span><span class="tl-tag i18n" data-es="Audio" data-en="Audio">Audio</span><span class="tl-tag">Trailer</span><span class="tl-tag i18n" data-es="Arte final" data-en="Final art">Arte final</span></div>
+          <div class="tl-deliverable"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            <span class="i18n" data-es="Entregable: juego publicado en itch.io (ver proyectos)" data-en="Deliverable: game published on itch.io (see projects)">Entregable: juego publicado en itch.io (ver proyectos)</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-nav reveal">
+    <button class="tl-btn-prev" id="tl-btn-prev" onclick="tlPrev()" disabled>← <span class="i18n" data-es="Anterior" data-en="Previous">Anterior</span></button>
+    <button class="tl-btn-next" id="tl-btn-next" onclick="tlNext()"><span class="i18n" data-es="Siguiente" data-en="Next">Siguiente</span> →</button>
+  </div>
+
+  <div class="tl-evidence reveal">
+    <div class="tl-evidence-label i18n" data-es="Evidencia en este portfolio" data-en="Evidence in this portfolio">Evidencia en este portfolio</div>
+    <div class="tl-pills">
+      <div class="tl-pill" id="tlp-0"><span class="tl-pill-dot"></span><span class="i18n" data-es="Miro boards" data-en="Miro boards">Miro boards</span></div>
+      <div class="tl-pill" id="tlp-1"><span class="tl-pill-dot"></span><span class="i18n" data-es="SPEC Template v2" data-en="SPEC Template v2">SPEC Template v2</span></div>
+      <div class="tl-pill" id="tlp-2"><span class="tl-pill-dot"></span><span class="i18n" data-es="Player System Spec" data-en="Player System Spec">Player System Spec</span></div>
+      <div class="tl-pill" id="tlp-3"><span class="tl-pill-dot"></span><span class="i18n" data-es="6 juegos publicados" data-en="6 published games">6 juegos publicados</span></div>
+      <div class="tl-pill" id="tlp-4"><span class="tl-pill-dot"></span><span class="i18n" data-es="Trailers en YouTube" data-en="Trailers on YouTube">Trailers en YouTube</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
 <section id="projects" style="border-top:1px solid var(--border);max-width:1100px;margin:0 auto;padding:7rem 3rem">
-  <div class="section-label reveal">Portfolio</div>
-  <h2 class="reveal">Proyectos</h2>
+  <div class="section-label reveal i18n" data-es="Portfolio" data-en="Portfolio">Portfolio</div>
+  <h2 class="reveal i18n" data-es="Proyectos" data-en="Projects">Proyectos</h2>
   <div class="filter-bar reveal">
-    <button class="filter-btn active" onclick="filterProjects('all',this)">Todos</button>
-    <button class="filter-btn" onclick="filterProjects('Horror',this)">Horror</button>
-    <button class="filter-btn" onclick="filterProjects('Acción',this)">Acción</button>
-    <button class="filter-btn" onclick="filterProjects('Plataformas',this)">Plataformas</button>
-    <button class="filter-btn" onclick="filterProjects('Simulación',this)">Simulación</button>
-    <button class="filter-btn" onclick="filterProjects('Puzzle',this)">Puzzle</button>
+    <button class="filter-btn active i18n" data-es="Todos" data-en="All" onclick="filterProjects('all',this)">Todos</button>
+    <button class="filter-btn i18n" data-es="Horror" data-en="Horror" onclick="filterProjects(window._currentLang==='en'?'Horror':'Horror',this)">Horror</button>
+    <button class="filter-btn i18n" data-es="Acción" data-en="Action" onclick="filterProjects(window._currentLang==='en'?'Action':'Acción',this)">Acción</button>
+    <button class="filter-btn i18n" data-es="Plataformas" data-en="Platforms" onclick="filterProjects(window._currentLang==='en'?'Platforms':'Plataformas',this)">Plataformas</button>
+    <button class="filter-btn i18n" data-es="Simulación" data-en="Simulation" onclick="filterProjects(window._currentLang==='en'?'Simulation':'Simulación',this)">Simulación</button>
+    <button class="filter-btn i18n" data-es="Puzzle" data-en="Puzzle" onclick="filterProjects(window._currentLang==='en'?'Puzzle':'Puzzle',this)">Puzzle</button>
   </div>
   <div class="projects-grid" id="projects-grid"></div>
 </section>
@@ -316,32 +618,32 @@
   <div style="max-width:1100px;margin:0 auto;padding:7rem 3rem">
     <div class="section-label reveal">Documentaci&#243;n</div>
     <h2 class="reveal">Design Docs</h2>
-    <p style="color:var(--muted);font-size:0.88rem;max-width:560px;margin-bottom:3rem;margin-top:-2rem" class="reveal">Los docs de dise&#241;o que uso para comunicar sistemas y specs t&#233;cnicas. Visualiz&#225; y descarg&#225; directo desde ac&#225;.</p>
+    <p style="color:var(--muted);font-size:0.88rem;max-width:560px;margin-bottom:3rem;margin-top:-2rem" class="reveal i18n" data-es="Los docs de dise&#241;o que uso para comunicar sistemas y specs t&#233;cnicas. Visualiz&#225; y descarg&#225; directo desde ac&#225;." data-en="The design docs I use to communicate systems and technical specs. Preview and download them directly here.">Los docs de dise&#241;o que uso para comunicar sistemas y specs t&#233;cnicas. Visualiz&#225; y descarg&#225; directo desde ac&#225;.</p>
     <div class="docs-grid">
 
       <div class="doc-card reveal">
         <div class="doc-preview-wrap" onclick="openPreview('template')" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;">
           <div style="font-size:3rem;">📄</div>
-          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-0.01em;">SPEC Template v2</div>
-          <div style="font-size:0.72rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;">Documento Word · DOCX</div>
+          <div class="i18n" data-es="SPEC Template v2" data-en="SPEC Template v2" style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-0.01em;">SPEC Template v2</div>
+          <div style="font-size:0.72rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;" class="i18n" data-es="Documento Word · DOCX" data-en="Word Document · DOCX">Documento Word · DOCX</div>
           <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;padding:0 1.5rem;">
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Visión general</span>
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">ScriptableObjects</span>
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Edge Cases</span>
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Glosario</span>
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">FSM</span>
+            <span class="i18n" data-es="Visión general" data-en="Overview" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Visión general</span>
+            <span class="i18n" data-es="ScriptableObjects" data-en="ScriptableObjects" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">ScriptableObjects</span>
+            <span class="i18n" data-es="Edge Cases" data-en="Edge Cases" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Edge Cases</span>
+            <span class="i18n" data-es="Glosario" data-en="Glossary" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Glosario</span>
+            <span class="i18n" data-es="FSM" data-en="FSM" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">FSM</span>
           </div>
           <div class="doc-preview-overlay"><span>&#8595; Descargar DOCX</span></div>
         </div>
         <div class="doc-body">
-          <div class="doc-tag">&#128196; Template</div>
+          <div class="doc-tag i18n" data-es="📄 Template" data-en="📄 Template">&#128196; Template</div>
           <div class="doc-title">SPEC Template v2</div>
-          <div class="doc-desc">Plantilla base para documentar cualquier sistema de juego. Incluye visi&#243;n general, par&#225;metros con ScriptableObjects, flujos, edge cases y glosario.</div>
-          <div class="doc-meta"><span>Game Design</span><span>Unity / General</span><span>DOCX</span></div>
+          <div class="doc-desc i18n" data-es="Plantilla base para documentar cualquier sistema de juego. Incluye visi&#243;n general, par&#225;metros con ScriptableObjects, flujos, edge cases y glosario." data-en="Base template for documenting any game system. Includes overview, ScriptableObject parameters, flows, edge cases and glossary.">Plantilla base para documentar cualquier sistema de juego. Incluye visi&#243;n general, par&#225;metros con ScriptableObjects, flujos, edge cases y glosario.</div>
+          <div class="doc-meta"><span class="i18n" data-es="Game Design" data-en="Game Design">Game Design</span><span>Unity / General</span><span>DOCX</span></div>
         </div>
         <div class="doc-footer">
-          <button onclick="downloadDoc('docx')" class="btn-sm btn-sm-accent">&#8595; Descargar DOCX</button>
-          <button class="btn-sm btn-sm-ghost" onclick="openPreview('template')">Vista previa &#128269;</button>
+          <button onclick="downloadDoc('docx')" class="btn-sm btn-sm-accent i18n" data-es="↓ Descargar DOCX" data-en="↓ Download DOCX">&#8595; Descargar DOCX</button>
+          <button class="btn-sm btn-sm-ghost i18n" onclick="openPreview('template')" data-es="Vista previa 🔍" data-en="Preview 🔍">Vista previa &#128269;</button>
         </div>
       </div>
 
@@ -349,27 +651,27 @@
         <div class="doc-preview-wrap" onclick="openPreview('wired')" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;">
           <iframe id="iframe-wired" src="" title="Player Spec WIRED" loading="lazy" style="display:none"></iframe>
           <div style="font-size:3rem;">📄</div>
-          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-0.01em;">Player System Spec</div>
-          <div style="font-size:0.72rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;">WIRED · Survival Horror · PDF</div>
+          <div class="i18n" data-es="Player System Spec" data-en="Player System Spec" style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-0.01em;">Player System Spec</div>
+          <div class="i18n" data-es="WIRED · Survival Horror · PDF" data-en="WIRED · Survival Horror · PDF" style="font-size:0.72rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;">WIRED · Survival Horror · PDF</div>
           <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;padding:0 1.5rem;">
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Movimiento</span>
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Cámara</span>
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Inventario</span>
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">FSM Estados</span>
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Némesis</span>
-            <span style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Edge Cases</span>
+            <span class="i18n" data-es="Movimiento" data-en="Movement" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Movimiento</span>
+            <span class="i18n" data-es="Cámara" data-en="Camera" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Cámara</span>
+            <span class="i18n" data-es="Inventario" data-en="Inventory" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Inventario</span>
+            <span class="i18n" data-es="FSM Estados" data-en="FSM States" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">FSM Estados</span>
+            <span class="i18n" data-es="Némesis" data-en="Nemesis" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Némesis</span>
+            <span class="i18n" data-es="Edge Cases" data-en="Edge Cases" style="font-size:0.68rem;padding:0.2rem 0.6rem;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);color:#a78bfa;">Edge Cases</span>
           </div>
           <div class="doc-preview-overlay"><span>&#128269; Ver completo</span></div>
         </div>
         <div class="doc-body">
-          <div class="doc-tag">&#128196; Spec Doc</div>
-          <div class="doc-title">Player System Spec &#8212; WIRED</div>
-          <div class="doc-desc">Spec t&#233;cnica completa del sistema del jugador para WIRED, survival horror en desarrollo. Movimiento, c&#225;mara, inventario, estados, N&#233;mesis, edge cases y m&#225;s.</div>
+          <div class="doc-tag i18n" data-es="📄 Spec Doc" data-en="📄 Spec Doc">&#128196; Spec Doc</div>
+          <div class="doc-title i18n" data-es="Player System Spec — WIRED" data-en="Player System Spec — WIRED">Player System Spec &#8212; WIRED</div>
+          <div class="doc-desc i18n" data-es="Spec t&#233;cnica completa del sistema del jugador para WIRED, survival horror en desarrollo. Movimiento, c&#225;mara, inventario, estados, N&#233;mesis, edge cases y m&#225;s." data-en="Full technical spec of the player system for WIRED, a survival horror in development. Movement, camera, inventory, states, Nemesis, edge cases and more.">Spec t&#233;cnica completa del sistema del jugador para WIRED, survival horror en desarrollo. Movimiento, c&#225;mara, inventario, estados, N&#233;mesis, edge cases y m&#225;s.</div>
           <div class="doc-meta"><span>Survival Horror</span><span>Unity &#183; C#</span><span>PDF &#183; 18 p&#225;gs</span></div>
         </div>
         <div class="doc-footer">
-          <button onclick="downloadDoc('pdf')" class="btn-sm btn-sm-accent">&#8595; Descargar PDF</button>
-          <button class="btn-sm btn-sm-ghost" onclick="openPreview('wired')">Vista previa &#128269;</button>
+          <button onclick="downloadDoc('pdf')" class="btn-sm btn-sm-accent i18n" data-es="↓ Descargar PDF" data-en="↓ Download PDF">&#8595; Descargar PDF</button>
+          <button class="btn-sm btn-sm-ghost i18n" onclick="openPreview('wired')" data-es="Vista previa 🔍" data-en="Preview 🔍">Vista previa &#128269;</button>
         </div>
       </div>
 
@@ -381,22 +683,118 @@
   <div class="preview-modal-header">
     <div class="preview-modal-title" id="preview-modal-title">Vista previa</div>
     <div class="preview-modal-actions">
-      <button id="preview-dl-btn" onclick="downloadPreview()" class="btn-sm btn-sm-accent">&#8595; Descargar</button>
+      <button id="preview-dl-btn" onclick="downloadPreview()" class="btn-sm btn-sm-accent i18n" data-es="↓ Descargar" data-en="↓ Download">&#8595; Descargar</button>
       <button class="modal-close" onclick="closePreview()">&#10005;</button>
     </div>
   </div>
   <iframe id="preview-iframe" src="" style="flex:1;width:100%;border:none;"></iframe>
 </div>
 
+
+<section id="generos">
+<div class="generos-inner">
+  <div class="section-label reveal i18n" data-es="Especialización" data-en="Specialization">Especialización</div>
+  <h2 class="reveal i18n" data-es="Géneros que diseño" data-en="Genres I design">Géneros que diseño</h2>
+  <p style="color:var(--muted);font-size:0.88rem;max-width:500px;margin-top:-2rem;margin-bottom:0" class="reveal i18n"
+     data-es="Mi experiencia acumulada en cada género, basada en los proyectos desarrollados."
+     data-en="My accumulated experience in each genre, based on developed projects.">Mi experiencia acumulada en cada género, basada en los proyectos desarrollados.</p>
+  <div class="genre-grid">
+    <div class="genre-card fav reveal">
+      <div class="genre-level-label i18n" data-es="Principal" data-en="Primary">Principal</div>
+      <div class="genre-name i18n" data-es="Horror" data-en="Horror">Horror</div>
+      <div class="genre-projects i18n" data-es="2 proyectos" data-en="2 projects">2 proyectos</div>
+      <div class="genre-desc i18n"
+           data-es="Mi género favorito. Me especializo en atmósfera, tensión, diseño de amenazas y horror sin combate."
+           data-en="My favorite genre. I specialize in atmosphere, tension, threat design and combat-free horror.">Mi género favorito. Me especializo en atmósfera, tensión, diseño de amenazas y horror sin combate.</div>
+      <div class="genre-dots"><span class="gdot active"></span><span class="gdot active"></span><span class="gdot active"></span><span class="gdot active"></span><span class="gdot active"></span></div>
+      <div class="genre-fav-badge i18n" data-es="⭐ Favorito" data-en="⭐ Favorite">⭐ Favorito</div>
+    </div>
+    <div class="genre-card reveal">
+      <div class="genre-level-label i18n" data-es="Avanzado" data-en="Advanced">Avanzado</div>
+      <div class="genre-name i18n" data-es="Plataformas" data-en="Platformers">Plataformas</div>
+      <div class="genre-projects i18n" data-es="3 proyectos" data-en="3 projects">3 proyectos</div>
+      <div class="genre-desc i18n"
+           data-es="Diseño de progresión vertical, layout de niveles, curvas de dificultad y sistemas de upgrades."
+           data-en="Vertical progression design, level layout, difficulty curves and upgrade systems.">Diseño de progresión vertical, layout de niveles, curvas de dificultad y sistemas de upgrades.</div>
+      <div class="genre-dots"><span class="gdot active"></span><span class="gdot active"></span><span class="gdot active"></span><span class="gdot active"></span><span class="gdot"></span></div>
+    </div>
+    <div class="genre-card reveal">
+      <div class="genre-level-label i18n" data-es="Intermedio" data-en="Intermediate">Intermedio</div>
+      <div class="genre-name i18n" data-es="Acción" data-en="Action">Acción</div>
+      <div class="genre-projects i18n" data-es="2 proyectos" data-en="2 projects">2 proyectos</div>
+      <div class="genre-desc i18n"
+           data-es="Diseño de combate, flujo de niveles y balance de dificultad en contextos de acción rápida."
+           data-en="Combat design, level flow and difficulty balance in fast-paced action contexts.">Diseño de combate, flujo de niveles y balance de dificultad en contextos de acción rápida.</div>
+      <div class="genre-dots"><span class="gdot active"></span><span class="gdot active"></span><span class="gdot active"></span><span class="gdot"></span><span class="gdot"></span></div>
+    </div>
+    <div class="genre-card reveal">
+      <div class="genre-level-label i18n" data-es="Explorando" data-en="Exploring">Explorando</div>
+      <div class="genre-name i18n" data-es="Simulación" data-en="Simulation">Simulación</div>
+      <div class="genre-projects i18n" data-es="1 proyecto" data-en="1 project">1 proyecto</div>
+      <div class="genre-desc i18n"
+           data-es="Sistemas de economía interna, diseño de mecánicas de gestión y loops de juego en tiempo real."
+           data-en="Internal economy systems, management mechanic design and real-time game loops.">Sistemas de economía interna, diseño de mecánicas de gestión y loops de juego en tiempo real.</div>
+      <div class="genre-dots"><span class="gdot active"></span><span class="gdot active"></span><span class="gdot"></span><span class="gdot"></span><span class="gdot"></span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="faq">
+<div class="faq-inner">
+  <div class="section-label reveal i18n" data-es="Para reclutadores" data-en="For recruiters">Para reclutadores</div>
+  <h2 class="reveal i18n" data-es="Preguntas frecuentes" data-en="FAQ">Preguntas frecuentes</h2>
+  <div class="faq-grid reveal">
+    <div class="faq-item">
+      <div class="faq-q i18n" data-es="¿Estás disponible para trabajar?" data-en="Are you available to work?">¿Estás disponible para trabajar?</div>
+      <div class="faq-a i18n"
+           data-es="<strong>Sí.</strong> Estoy disponible para proyectos freelance, part-time o prácticas profesionales. Actualmente curso 4to año en UADE, por lo que tengo flexibilidad horaria."
+           data-en="<strong>Yes.</strong> I'm available for freelance, part-time or internship opportunities. I'm currently in my 4th year at UADE, so I have schedule flexibility."><strong>Sí.</strong> Estoy disponible para proyectos freelance, part-time o prácticas profesionales. Actualmente curso 4to año en UADE, por lo que tengo flexibilidad horaria.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q i18n" data-es="¿Trabajás de forma remota?" data-en="Do you work remotely?">¿Trabajás de forma remota?</div>
+      <div class="faq-a i18n"
+           data-es="<strong>Sí, preferentemente.</strong> Tengo experiencia coordinando proyectos en equipo de forma remota. También puedo trabajar de forma híbrida o presencial en Buenos Aires."
+           data-en="<strong>Yes, preferably.</strong> I have experience coordinating remote team projects. I can also work hybrid or on-site in Buenos Aires."><strong>Sí, preferentemente.</strong> Tengo experiencia coordinando proyectos en equipo de forma remota. También puedo trabajar de forma híbrida o presencial en Buenos Aires.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q i18n" data-es="¿Hablás inglés?" data-en="Do you speak English?">¿Hablás inglés?</div>
+      <div class="faq-a i18n"
+           data-es="<strong>Upper-Intermediate.</strong> Tengo certificación previa al Cambridge First. Puedo leer documentación, escribir en inglés y comunicarme fluidamente en reuniones."
+           data-en="<strong>Upper-Intermediate.</strong> I hold a pre-Cambridge First certification. I can read documentation, write in English and communicate fluently in meetings."><strong>Upper-Intermediate.</strong> Tengo certificación previa al Cambridge First. Puedo leer documentación, escribir en inglés y comunicarme fluidamente en reuniones.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q i18n" data-es="¿Tenés experiencia con Unreal Engine?" data-en="Do you have Unreal Engine experience?">¿Tenés experiencia con Unreal Engine?</div>
+      <div class="faq-a i18n"
+           data-es="<strong>Sí.</strong> Trabajo con Unreal Engine y Blueprints como parte de la carrera en UADE. Mi mayor experiencia es en Unity con C#, pero manejo ambos motores."
+           data-en="<strong>Yes.</strong> I work with Unreal Engine and Blueprints as part of my degree at UADE. My strongest experience is in Unity with C#, but I handle both engines."><strong>Sí.</strong> Trabajo con Unreal Engine y Blueprints como parte de la carrera en UADE. Mi mayor experiencia es en Unity con C#, pero manejo ambos motores.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q i18n" data-es="¿Qué tipo de proyectos buscás?" data-en="What kind of projects are you looking for?">¿Qué tipo de proyectos buscás?</div>
+      <div class="faq-a i18n"
+           data-es="Proyectos con foco en <strong>diseño de sistemas y narrativa</strong>. Me atrae especialmente el horror atmosférico, los puzzles y los juegos con mecánicas bien documentadas. Abierto a otros géneros."
+           data-en="Projects focused on <strong>systems design and narrative</strong>. I'm especially drawn to atmospheric horror, puzzles and games with well-documented mechanics. Open to other genres.">Proyectos con foco en <strong>diseño de sistemas y narrativa</strong>. Me atrae especialmente el horror atmosférico, los puzzles y los juegos con mecánicas bien documentadas. Abierto a otros géneros.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q i18n" data-es="¿Cómo te contacto?" data-en="How do I contact you?">¿Cómo te contacto?</div>
+      <div class="faq-a i18n"
+           data-es="Por el formulario de esta página, por email a <a href='mailto:santimastroberti@hotmail.com'>santimastroberti@hotmail.com</a> o por <a href='https://www.linkedin.com/in/santiago-mastroberti-6b5966258/' target='_blank'>LinkedIn</a>. Respondo en menos de 24 horas."
+           data-en="Through the form on this page, by email at <a href='mailto:santimastroberti@hotmail.com'>santimastroberti@hotmail.com</a> or via <a href='https://www.linkedin.com/in/santiago-mastroberti-6b5966258/' target='_blank'>LinkedIn</a>. I reply within 24 hours.">Por el formulario de esta página, por email a <a href='mailto:santimastroberti@hotmail.com'>santimastroberti@hotmail.com</a> o por <a href='https://www.linkedin.com/in/santiago-mastroberti-6b5966258/' target='_blank'>LinkedIn</a>. Respondo en menos de 24 horas.</div>
+    </div>
+  </div>
+</div>
+</section>
+
 <div id="contact">
-  <div class="section-label reveal" style="justify-content:center">Contacto</div>
-  <h2 class="reveal">¿Trabajamos<br>juntos?</h2>
-  <p class="contact-desc reveal">Estoy abierto a colaboraciones, proyectos en equipo y oportunidades en la industria.</p>
+  <div class="section-label reveal i18n" style="justify-content:center" data-es="Contacto" data-en="Contact">Contacto</div>
+  <h2 class="reveal i18n" data-es="¿Trabajamos<br>juntos?" data-en="Work<br>together?">¿Trabajamos<br>juntos?</h2>
+  <p class="contact-desc reveal i18n" data-es="Estoy abierto a colaboraciones, proyectos en equipo y oportunidades en la industria." data-en="Open to collaborations, team projects and opportunities in the industry.">Estoy abierto a colaboraciones, proyectos en equipo y oportunidades en la industria.</p>
   <form class="contact-form reveal" action="https://formspree.io/f/xaqanbvq" method="POST">
-    <div class="form-group"><label class="form-label">Nombre</label><input type="text" name="name" class="form-input" placeholder="Tu nombre" required></div>
-    <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input" placeholder="tu@email.com" required></div>
-    <div class="form-group"><label class="form-label">Mensaje</label><textarea name="message" class="form-textarea" placeholder="Contame sobre tu proyecto..." required></textarea></div>
-    <button type="submit" class="form-btn">Enviar mensaje →</button>
+    <div class="form-group"><label class="form-label i18n" data-es="Nombre" data-en="Name">Nombre</label><input type="text" name="name" class="form-input" placeholder="Tu nombre" required></div>
+    <div class="form-group"><label class="form-label i18n" data-es="Email" data-en="Email">Email</label><input type="email" name="email" class="form-input" placeholder="tu@email.com" required></div>
+    <div class="form-group"><label class="form-label i18n" data-es="Mensaje" data-en="Message">Mensaje</label><textarea name="message" class="form-textarea" placeholder="Contame sobre tu proyecto..." required></textarea></div>
+    <button type="submit" class="form-btn i18n" data-es="Enviar mensaje →" data-en="Send message →">Enviar mensaje →</button>
     
   </form>
   <div class="contact-links reveal">
@@ -406,8 +804,8 @@
 </div>
 
 <footer>
-  <span>© 2025 Santiago Mastroberti — Game Designer</span>
-  <span style="color:var(--border)">Hecho con código, pasión y muchas horas de playtesting</span>
+  <span class="i18n" data-es="© 2025 Santiago Mastroberti — Game Designer" data-en="© 2025 Santiago Mastroberti — Game Designer">© 2025 Santiago Mastroberti — Game Designer</span>
+  <span style="color:var(--border)" class="i18n" data-es="Hecho con código, pasión y muchas horas de playtesting" data-en="Built with code, passion and many hours of playtesting">Hecho con código, pasión y muchas horas de playtesting</span>
 </footer>
 
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
@@ -424,8 +822,10 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
 var projects = [
   {
-    id: 1, title: "Goblin Tavern", year: "2025", genre: "Simulación",
-    role: "Game Designer & Co-developer", status: "dev", statusLabel: "En desarrollo",
+    id: 1, title: "Goblin Tavern", year: "2025",
+    genre_es: "Simulación", genre_en: "Simulation",
+    role: "Game Designer & Co-developer",
+    status: "dev", statusLabel_es: "En desarrollo", statusLabel_en: "In Development",
     platforms: ["Windows"], views: 77, downloads: 5,
     thumb: "https://img.itch.zone/aW1nLzI0MjQ5NTI2LnBuZw==/original/BQymtT.png",
     trailerYT: "kNOWxyaKKfk",
@@ -435,15 +835,21 @@ var projects = [
       "https://img.itch.zone/aW1hZ2UvNDA0ODU5Mi8yNDI0OTQ5Ny5qcGc=/original/AMZmuB.jpg",
       "https://img.itch.zone/aW1hZ2UvNDA0ODU5Mi8yNDI0OTQ5OC5qcGc=/original/v0agra.jpg"
     ],
-    shortDesc: "Simulador de cocina y gestión en tiempo real. Controlás a un goblin que administra una taberna llena de criaturas hambrientas.",
-    fullDesc: "Goblin Tavern es un cooking & management simulator donde el jugador gestiona una taberna fantasy en tiempo real. El juego combina mecánicas de preparación de recetas, atención al cliente y administración de recursos con una economía interna para mejorar el local. Proyecto en colaboración con ValenVbucks y Josuke03.",
-    contributions: ["Diseño de sistemas", "Economía interna", "Diseño de clientes", "Mecánicas de cocina"],
-    whatIDid: ["Diseño del sistema de recetas y pasos de cocción","Creación de la variedad de clientes con paciencia y recompensas distintas","Sistema de economía: ingresos de oro y mejoras del local","Diseño de flujo de juego y loop principal","Colaboración en la documentación de diseño del proyecto"],
+    shortDesc_es: "Simulador de cocina y gestión en tiempo real. Controlás a un goblin que administra una taberna llena de criaturas hambrientas.",
+    shortDesc_en: "Real-time cooking & management sim. You play as a goblin running a tavern full of hungry creatures.",
+    fullDesc_es: "Goblin Tavern es un cooking & management simulator donde el jugador gestiona una taberna fantasy en tiempo real. El juego combina mecánicas de preparación de recetas, atención al cliente y administración de recursos con una economía interna para mejorar el local. Proyecto en colaboración con ValenVbucks y Josuke03.",
+    fullDesc_en: "Goblin Tavern is a cooking & management simulator where the player runs a fantasy tavern in real time. The game combines recipe preparation mechanics, customer service and resource management with an internal economy to upgrade the venue. Developed in collaboration with ValenVbucks and Josuke03.",
+    contributions_es: ["Diseño de sistemas", "Economía interna", "Diseño de clientes", "Mecánicas de cocina"],
+    contributions_en: ["Systems Design", "Internal Economy", "Customer Design", "Cooking Mechanics"],
+    whatIDid_es: ["Diseño del sistema de recetas y pasos de cocción","Creación de la variedad de clientes con paciencia y recompensas distintas","Sistema de economía: ingresos de oro y mejoras del local","Diseño de flujo de juego y loop principal","Colaboración en la documentación de diseño del proyecto"],
+    whatIDid_en: ["Recipe system and cooking steps design","Created diverse customer types with different patience and rewards","Economy system: gold income and venue upgrades","Gameplay flow and main loop design","Collaboration on the project's design documentation"],
     itchUrl: "https://valenvbucks.itch.io/goblin-tavern"
   },
   {
-    id: 2, title: "The Morning After", year: "2024", genre: "Acción",
-    role: "Game Designer & Co-developer", status: "released", statusLabel: "Lanzado",
+    id: 2, title: "The Morning After", year: "2024",
+    genre_es: "Acción", genre_en: "Action",
+    role: "Game Designer & Co-developer",
+    status: "released", statusLabel_es: "Lanzado", statusLabel_en: "Released",
     platforms: ["Windows"], views: 261, downloads: 26,
     thumb: "https://img.itch.zone/aW1hZ2UvMjQ5ODU0NC8xNDg1Nzg1OS5qcGc=/original/2xYZKE.jpg",
     trailerYT: "7QN3X47l7Lc",
@@ -453,15 +859,21 @@ var projects = [
       "https://img.itch.zone/aW1hZ2UvMjQ5ODU0NC8xNDg1Nzg1OC5qcGc=/original/0SN6Ah.jpg",
       "https://img.itch.zone/aW1hZ2UvMjQ5ODU0NC8xNDg1Nzg1Ny5qcGc=/original/eOK46z.jpg"
     ],
-    shortDesc: "Shooter en tercera persona post-apocalíptico con zombies, autoconsciencia y una carta de disculpa incluida.",
-    fullDesc: "The Morning After es un shooter en tercera persona ambientado en un mundo post-apocalíptico. El juego abraza conscientemente su naturaleza indie con humor y autorreferencia. Co-desarrollado con ValenVbucks.",
-    contributions: ["Diseño de niveles", "Narrativa", "Diseño de combate", "Humor & tono"],
-    whatIDid: ["Diseño del flujo de combate y mecánicas de disparo","Creación del tono narrativo autoconsiente y humorístico","Diseño de los espacios de juego en un mundo post-apocalíptico","Coordinación del equipo de desarrollo","Testing y ajuste de la experiencia de juego"],
+    shortDesc_es: "Shooter en tercera persona post-apocalíptico con zombies, autoconsciencia y una carta de disculpa incluida.",
+    shortDesc_en: "Post-apocalyptic third-person shooter with zombies, self-awareness and an apology letter included.",
+    fullDesc_es: "The Morning After es un shooter en tercera persona ambientado en un mundo post-apocalíptico. El juego abraza conscientemente su naturaleza indie con humor y autorreferencia. Co-desarrollado con ValenVbucks.",
+    fullDesc_en: "The Morning After is a third-person shooter set in a post-apocalyptic world. The game consciously embraces its indie nature with humor and self-reference. Co-developed with ValenVbucks.",
+    contributions_es: ["Diseño de niveles", "Narrativa", "Diseño de combate", "Humor & tono"],
+    contributions_en: ["Level Design", "Narrative", "Combat Design", "Humor & Tone"],
+    whatIDid_es: ["Diseño del flujo de combate y mecánicas de disparo","Creación del tono narrativo autoconsiente y humorístico","Diseño de los espacios de juego en un mundo post-apocalíptico","Coordinación del equipo de desarrollo","Testing y ajuste de la experiencia de juego"],
+    whatIDid_en: ["Combat flow and shooting mechanics design","Created the self-aware and humorous narrative tone","Game space design in a post-apocalyptic world","Development team coordination","Testing and gameplay experience tuning"],
     itchUrl: "https://santiagomastroberti.itch.io/the-morning-after"
   },
   {
-    id: 3, title: "Hunting Hum", year: "2024", genre: "Horror",
-    role: "Game Designer & Co-developer", status: "released", statusLabel: "Lanzado",
+    id: 3, title: "Hunting Hum", year: "2024",
+    genre_es: "Horror", genre_en: "Horror",
+    role: "Game Designer & Co-developer",
+    status: "released", statusLabel_es: "Lanzado", statusLabel_en: "Released",
     platforms: ["Windows"], views: 576, downloads: 149,
     thumb: "https://img.itch.zone/aW1hZ2UvMjQzNzAzNy8xNDQ0Mjk3My5wbmc=/original/Fdslcy.png",
     trailerYT: "o_SerjUV-r0",
@@ -472,15 +884,21 @@ var projects = [
       "https://img.itch.zone/aW1hZ2UvMjQzNzAzNy8xNDQ0Mjk3Mi5wbmc=/original/kw8dId.png",
       "https://img.itch.zone/aW1hZ2UvMjQzNzAzNy8xNDQ0Mjk3MC5wbmc=/original/fgUVrI.png"
     ],
-    shortDesc: "Horror de supervivencia en primera persona. Sos un policía atrapado con un asesino serial. ⭐ 5.0/5 — 149 descargas.",
-    fullDesc: "Hunting Hum es un survival horror en primera persona que invierte el rol clásico de detective. El jugador, un policía sin armas, debe resolver puzzles para escapar de un asesino psicópata. Valorado 5.0/5 en itch.io con 576 vistas y 149 descargas. Desarrollado con Lucas Coceres, Santiago Vivas y Lucas Magdalena.",
-    contributions: ["Diseño de puzzles", "Atmósfera", "Horror design", "Narrativa"],
-    whatIDid: ["Diseño de los puzzles de escape dentro de la casa","Construcción de la atmósfera de terror y tensión","Diseño del comportamiento e IA del asesino","Desarrollo de la narrativa de supervivencia","Playtesting enfocado en fear factor y dificultad"],
+    shortDesc_es: "Horror de supervivencia en primera persona. Sos un policía atrapado con un asesino serial.",
+    shortDesc_en: "First-person survival horror. You're a cop trapped in a house with a serial killer.",
+    fullDesc_es: "Hunting Hum es un survival horror en primera persona que invierte el rol clásico de detective. El jugador, un policía sin armas, debe resolver puzzles para escapar de un asesino psicópata. Desarrollado con Lucas Coceres, Santiago Vivas y Lucas Magdalena.",
+    fullDesc_en: "Hunting Hum is a first-person survival horror that flips the classic detective role. The player, an unarmed cop, must solve puzzles to escape a psychopathic killer. Developed with Lucas Coceres, Santiago Vivas and Lucas Magdalena.",
+    contributions_es: ["Diseño de puzzles", "Atmósfera", "Horror design", "Narrativa"],
+    contributions_en: ["Puzzle Design", "Atmosphere", "Horror Design", "Narrative"],
+    whatIDid_es: ["Diseño de los puzzles de escape dentro de la casa","Construcción de la atmósfera de terror y tensión","Diseño del comportamiento e IA del asesino","Desarrollo de la narrativa de supervivencia","Playtesting enfocado en fear factor y dificultad"],
+    whatIDid_en: ["Escape puzzle design inside the house","Built the terror and tension atmosphere","Killer behavior and AI design","Survival narrative development","Playtesting focused on fear factor and difficulty"],
     itchUrl: "https://santiagomastroberti.itch.io/hunting-hum"
   },
   {
-    id: 4, title: "Meteor Madness", year: "2024", genre: "Acción",
-    role: "Game Designer & Developer", status: "released", statusLabel: "Lanzado",
+    id: 4, title: "Meteor Madness", year: "2024",
+    genre_es: "Acción", genre_en: "Action",
+    role: "Game Designer & Developer",
+    status: "released", statusLabel_es: "Lanzado", statusLabel_en: "Released",
     platforms: ["PC"], views: 49, downloads: 21,
     thumb: "https://img.itch.zone/aW1hZ2UvMjQzODgwMC8xNDQ0MjU4OC5wbmc=/original/oRY0yk.png",
     trailerYT: "_JV0BeajevQ",
@@ -489,30 +907,42 @@ var projects = [
       "https://img.itch.zone/aW1hZ2UvMjQzODgwMC8xNDQ0MjU4Ny5wbmc=/original/t%2F2IHE.png",
       "https://img.itch.zone/aW1hZ2UvMjQzODgwMC8xNDQ0MjU4OS5wbmc=/original/2ihfs%2B.png"
     ],
-    shortDesc: "Shooter espacial 2D con pixel art. Sobrevivís oleadas de meteoros y naves enemigas mientras mejorás tu nave con upgrades.",
-    fullDesc: "Meteor Madness es un arcade shooter 2D de pixel art. El jugador pilotea una nave y enfrenta olas de meteoros y naves enemigas. El sistema de upgrades permite personalizar la experiencia. Desarrollado íntegramente por Santiago Mastroberti.",
-    contributions: ["Diseño completo", "Pixel art", "Sistema de upgrades", "Balanceo"],
-    whatIDid: ["Diseño completo del juego desde cero","Sistema de oleadas de enemigos con dificultad progresiva","Sistema de upgrades y power-ups personalizable","Diseño visual en pixel art","Balanceo de dificultad y curva de progresión"],
+    shortDesc_es: "Shooter espacial 2D con pixel art. Sobrevivís oleadas de meteoros y naves enemigas mientras mejorás tu nave con upgrades.",
+    shortDesc_en: "2D pixel art space shooter. Survive waves of meteors and enemy ships while upgrading your spacecraft.",
+    fullDesc_es: "Meteor Madness es un arcade shooter 2D de pixel art. El jugador pilotea una nave y enfrenta olas de meteoros y naves enemigas. El sistema de upgrades permite personalizar la experiencia. Desarrollado íntegramente por Santiago Mastroberti.",
+    fullDesc_en: "Meteor Madness is a 2D pixel art arcade shooter. The player pilots a ship and faces waves of meteors and enemy vessels. The upgrade system allows players to customize their experience. Fully developed by Santiago Mastroberti.",
+    contributions_es: ["Diseño completo", "Pixel art", "Sistema de upgrades", "Balanceo"],
+    contributions_en: ["Full Design", "Pixel Art", "Upgrade System", "Balancing"],
+    whatIDid_es: ["Diseño completo del juego desde cero","Sistema de oleadas de enemigos con dificultad progresiva","Sistema de upgrades y power-ups personalizable","Diseño visual en pixel art","Balanceo de dificultad y curva de progresión"],
+    whatIDid_en: ["Full game design from scratch","Enemy wave system with progressive difficulty","Customizable upgrade and power-up system","Pixel art visual design","Difficulty balancing and progression curve"],
     itchUrl: "https://santiagomastroberti.itch.io/meteor-madness"
   },
   {
-    id: 5, title: "AstroUP", year: "2023", genre: "Plataformas",
-    role: "Game Designer & Co-developer", status: "proto", statusLabel: "Prototipo",
+    id: 5, title: "AstroUP", year: "2023",
+    genre_es: "Plataformas", genre_en: "Platformer",
+    role: "Game Designer & Co-developer",
+    status: "proto", statusLabel_es: "Prototipo", statusLabel_en: "Prototype",
     platforms: ["Windows"], views: 99, downloads: 18,
     thumb: "https://img.itch.zone/aW1nLzE0Mzk0NzUwLmdpZg==/original/BIF5cx.gif",
     trailerYT: "Asb-1ELVUUs",
     screenshots: [
       "https://img.itch.zone/aW1nLzE0Mzk0NzUwLmdpZg==/original/BIF5cx.gif"
     ],
-    shortDesc: "Plataformer 2D roguelite. Astronauta que sube plataformas combatiendo enemigos y comprando upgrades. ⭐ 5.0/5.",
-    fullDesc: "AstroUP es un plataformer 2D pixel art con elementos roguelite. El jugador controla a un astronauta que debe escalar niveles derrotando enemigos y acumulando monedas. Valorado 5.0/5 en itch.io. Desarrollado con Lucas Coceres, Demian Galvez, Santiago Vivas y Agustina Rodriguez.",
-    contributions: ["Diseño de plataformas", "Sistema de monedas", "Progresión", "Diseño de enemigos"],
-    whatIDid: ["Diseño de la progresión vertical y layout de niveles","Sistema de economía de monedas y tienda de upgrades","Diseño de tipos de enemigos con comportamientos distintos","Coordinación del equipo de 5 personas","Documentación del diseño del prototipo"],
+    shortDesc_es: "Plataformer 2D roguelite. Astronauta que sube plataformas combatiendo enemigos y comprando upgrades.",
+    shortDesc_en: "2D roguelite platformer. An astronaut climbs platforms fighting enemies and buying upgrades.",
+    fullDesc_es: "AstroUP es un plataformer 2D pixel art con elementos roguelite. El jugador controla a un astronauta que debe escalar niveles derrotando enemigos y acumulando monedas. Desarrollado con Lucas Coceres, Demian Galvez, Santiago Vivas y Agustina Rodriguez.",
+    fullDesc_en: "AstroUP is a 2D pixel art platformer with roguelite elements. The player controls an astronaut who must climb levels defeating enemies and collecting coins. Developed with Lucas Coceres, Demian Galvez, Santiago Vivas and Agustina Rodriguez.",
+    contributions_es: ["Diseño de plataformas", "Sistema de monedas", "Progresión", "Diseño de enemigos"],
+    contributions_en: ["Platform Design", "Coin System", "Progression", "Enemy Design"],
+    whatIDid_es: ["Diseño de la progresión vertical y layout de niveles","Sistema de economía de monedas y tienda de upgrades","Diseño de tipos de enemigos con comportamientos distintos","Coordinación del equipo de 5 personas","Documentación del diseño del prototipo"],
+    whatIDid_en: ["Vertical progression and level layout design","Coin economy and upgrade shop system","Enemy type design with distinct behaviors","5-person team coordination","Prototype design documentation"],
     itchUrl: "https://luqui1004.itch.io/astroup"
   },
   {
-    id: 6, title: "La Venganza de Vernon", year: "2023", genre: "Plataformas",
-    role: "Game Designer & Developer (solo)", status: "dev", statusLabel: "En desarrollo",
+    id: 6, title: "La Venganza de Vernon", year: "2023",
+    genre_es: "Plataformas", genre_en: "Platformer",
+    role: "Game Designer & Developer (solo)",
+    status: "dev", statusLabel_es: "En desarrollo", statusLabel_en: "In Development",
     platforms: ["PC"], views: 52, downloads: 23,
     thumb: "https://img.itch.zone/aW1nLzEyNjk3OTUzLnBuZw==/original/LXZ1Fa.png",
     trailerYT: null,
@@ -522,43 +952,55 @@ var projects = [
       "https://img.itch.zone/aW1hZ2UvMjE1Mzc2Mi8xMjY5NzU5OC5qcGVn/original/K496D%2B.jpeg",
       "https://img.itch.zone/aW1hZ2UvMjE1Mzc2Mi8xMjY5NzYwMC5qcGVn/original/8cac%2BF.jpeg"
     ],
-    shortDesc: "Plataformer 2D de fantasía. Un mago busca venganza contra el reino que masacró a su pueblo. Narrativa épica y alta dificultad.",
-    fullDesc: "La Venganza de Vernon es mi proyecto más narrativo y personal. Es un plataformer 2D donde controlás a Vermon, un mago que busca infiltrarse en el reino enemigo para vengar a su pueblo. Desarrollado íntegramente por Santiago Mastroberti en Unity.",
-    contributions: ["Diseño completo", "Narrativa & worldbuilding", "Diseño de combate", "Arte 2D"],
-    whatIDid: ["Creación del universo narrativo: dos reinos, historia de guerra y motivación del protagonista","Diseño de mecánicas de combate mágico","Diseño de niveles con alta dificultad progresiva","Arte y animaciones 2D del personaje","Gestión completa del proyecto como desarrollador en solitario"],
+    shortDesc_es: "Plataformer 2D de fantasía. Un mago busca venganza contra el reino que masacró a su pueblo.",
+    shortDesc_en: "2D fantasy platformer. A wizard seeks revenge against the kingdom that massacred his people.",
+    fullDesc_es: "La Venganza de Vernon es mi proyecto más narrativo y personal. Es un plataformer 2D donde controlás a Vermon, un mago que busca infiltrarse en el reino enemigo para vengar a su pueblo. Desarrollado íntegramente por Santiago Mastroberti en Unity.",
+    fullDesc_en: "La Venganza de Vernon is my most narrative and personal project. It's a 2D platformer where you control Vermon, a wizard who infiltrates the enemy kingdom to avenge his people. Fully developed by Santiago Mastroberti in Unity.",
+    contributions_es: ["Diseño completo", "Narrativa & worldbuilding", "Diseño de combate", "Arte 2D"],
+    contributions_en: ["Full Design", "Narrative & Worldbuilding", "Combat Design", "2D Art"],
+    whatIDid_es: ["Creación del universo narrativo: dos reinos, historia de guerra y motivación del protagonista","Diseño de mecánicas de combate mágico","Diseño de niveles con alta dificultad progresiva","Arte y animaciones 2D del personaje","Gestión completa del proyecto como desarrollador en solitario"],
+    whatIDid_en: ["Created the narrative universe: two kingdoms, war story and protagonist motivation","Magical combat mechanics design","Level design with progressively high difficulty","Character 2D art and animations","Full project management as a solo developer"],
     itchUrl: "https://santiagomastroberti.itch.io/la-venganza-de-vernon"
   }
 ];
 
 var statusClass = {released:'badge-released', dev:'badge-dev', proto:'badge-proto'};
 
-function renderProjects(filter) {
+function renderProjects(filter, lang) {
+  lang = lang || window._currentLang || 'es';
+  window._activeFilter = filter;
   var grid = document.getElementById('projects-grid');
-  var filtered = filter === 'all' ? projects : projects.filter(function(p){ return p.genre === filter; });
+  var filtered = filter === 'all' ? projects : projects.filter(function(p){
+    return (p['genre_' + lang] || p.genre_es) === filter;
+  });
+  var viewsLabel = lang === 'es' ? 'Vistas' : 'Views';
+  var dlLabel    = lang === 'es' ? 'Descargas' : 'Downloads';
+  var detailBtn  = lang === 'es' ? 'Ver detalle →' : 'View detail →';
+  var areasLabel = lang === 'es' ? 'Áreas de diseño' : 'Design areas';
   var html = '';
   for (var i = 0; i < filtered.length; i++) {
     var p = filtered[i];
     var plats = p.platforms.map(function(pl){ return '<span class="plat">'+pl+'</span>'; }).join('');
-    var contribs = p.contributions.map(function(c){ return '<span class="contrib-tag">'+c+'</span>'; }).join('');
+    var contribs = (p['contributions_' + lang] || p.contributions_es).map(function(c){ return '<span class="contrib-tag">'+c+'</span>'; }).join('');
     html += '<div class="project-card reveal">' +
       '<div class="card-thumb">' +
         '<img src="'+p.thumb+'" alt="'+p.title+'" loading="lazy">' +
         '<div class="card-thumb-overlay"></div>' +
-        '<div class="card-genre-badge">'+p.genre+'</div>' +
-        '<div class="card-status-badge '+statusClass[p.status]+'">'+p.statusLabel+'</div>' +
+        '<div class="card-genre-badge">'+(p['genre_'+lang]||p.genre_es)+'</div>' +
+        '<div class="card-status-badge '+statusClass[p.status]+'">'+(p['statusLabel_'+lang]||p.statusLabel_es)+'</div>' +
       '</div>' +
       '<div class="card-body">' +
         '<div class="card-meta"><span class="card-role">'+p.role+'</span><span class="card-year">'+p.year+'</span></div>' +
         '<div class="card-title">'+p.title+'</div>' +
-        '<div class="card-desc">'+p.shortDesc+'</div>' +
+        '<div class="card-desc">'+(p['shortDesc_'+lang]||p.shortDesc_es)+'</div>' +
         '<div class="card-analytics">' +
-          '<div class="card-analytics-item"><span class="card-analytics-num">'+p.views+'</span><span class="card-analytics-label">Vistas</span></div>' +
-          '<div class="card-analytics-item"><span class="card-analytics-num">'+p.downloads+'</span><span class="card-analytics-label">Descargas</span></div>' +
+          '<div class="card-analytics-item"><span class="card-analytics-num">'+p.views+'</span><span class="card-analytics-label">'+viewsLabel+'</span></div>' +
+          '<div class="card-analytics-item"><span class="card-analytics-num">'+p.downloads+'</span><span class="card-analytics-label">'+dlLabel+'</span></div>' +
         '</div>' +
         '<div class="platform-icons">'+plats+'</div>' +
-        '<div><div class="card-contributions-title">Áreas de diseño</div><div class="contributions-list">'+contribs+'</div></div>' +
+        '<div><div class="card-contributions-title">'+areasLabel+'</div><div class="contributions-list">'+contribs+'</div></div>' +
         '<div class="card-footer">' +
-          '<button class="btn-sm btn-sm-ghost" onclick="openModal('+p.id+')">Ver detalle →</button>' +
+          '<button class="btn-sm btn-sm-ghost" onclick="openModal('+p.id+')">'+detailBtn+'</button>' +
           '<a href="'+p.itchUrl+'" target="_blank" class="btn-sm btn-sm-accent">itch.io ↗</a>' +
         '</div>' +
       '</div></div>';
@@ -601,18 +1043,30 @@ function openModal(id) {
       }).join('') + '</div>';
   }
 
+  var lang = window._currentLang || 'es';
+  var descLabel   = lang === 'es' ? 'Descripción' : 'Description';
+  var didLabel    = lang === 'es' ? 'Lo que hice' : 'What I did';
+  var statsLabel  = lang === 'es' ? 'Stats en itch.io' : 'Stats on itch.io';
+  var viewsLabel  = lang === 'es' ? 'Vistas' : 'Views';
+  var dlLabel     = lang === 'es' ? 'Descargas' : 'Downloads';
+  var areasLabel  = lang === 'es' ? 'Áreas de diseño' : 'Design areas';
+  var fullDesc    = p['fullDesc_' + lang] || p.fullDesc_es;
+  var contribs    = (p['contributions_' + lang] || p.contributions_es).map(function(c){ return '<span class="contrib-tag">'+c+'</span>'; }).join('');
+  var items       = (p['whatIDid_' + lang] || p.whatIDid_es).map(function(item){
+    return '<div style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.85rem;color:var(--muted);margin-bottom:0.4rem"><span style="color:var(--accent);flex-shrink:0">▹</span><span>'+item+'</span></div>';
+  }).join('');
   document.getElementById('modal-body').innerHTML =
     trailerHtml +
-    '<div class="modal-section-title" style="margin-top:'+(p.trailerYT?'1.5rem':'0')+'">Descripción</div>' +
-    '<p>'+p.fullDesc+'</p>' +
-    '<div class="modal-section-title">Lo que hice</div><div>'+items+'</div>' +
-    '<div class="modal-section-title">Stats en itch.io</div>' +
+    '<div class="modal-section-title" style="margin-top:'+(p.trailerYT?'1.5rem':'0')+'">'+descLabel+'</div>' +
+    '<p>'+fullDesc+'</p>' +
+    '<div class="modal-section-title">'+didLabel+'</div><div>'+items+'</div>' +
+    '<div class="modal-section-title">'+statsLabel+'</div>' +
     '<div style="display:flex;gap:2rem;margin-bottom:0.5rem">' +
-      '<div class="card-analytics-item"><span class="card-analytics-num">'+p.views+'</span><span class="card-analytics-label">Vistas</span></div>' +
-      '<div class="card-analytics-item"><span class="card-analytics-num">'+p.downloads+'</span><span class="card-analytics-label">Descargas</span></div>' +
+      '<div class="card-analytics-item"><span class="card-analytics-num">'+p.views+'</span><span class="card-analytics-label">'+viewsLabel+'</span></div>' +
+      '<div class="card-analytics-item"><span class="card-analytics-num">'+p.downloads+'</span><span class="card-analytics-label">'+dlLabel+'</span></div>' +
     '</div>' +
     screenshotsHtml +
-    '<div class="modal-section-title">Áreas de diseño</div><div class="contributions-list">'+contribs+'</div>';
+    '<div class="modal-section-title">'+areasLabel+'</div><div class="contributions-list">'+contribs+'</div>';
 
   document.getElementById('modal-footer').innerHTML =
     '<a href="'+p.itchUrl+'" target="_blank" class="btn-sm btn-sm-accent">Ver en itch.io ↗</a>';
@@ -740,6 +1194,292 @@ function closePreview() {
   document.getElementById('preview-iframe').src = '';
   document.body.style.overflow = '';
 }
+
+window._cvEsB64 = 'JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9aYXBmRGluZ2JhdHMgL05hbWUgL0YzIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNSAwIG9iago8PAovQ29udGVudHMgOSAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA4IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago2IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgOCAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL0F1dGhvciAoYW5vbnltb3VzKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYwNDE0MTgyMjU0KzAwJzAwJykgL0NyZWF0b3IgKGFub255bW91cykgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYwNDE0MTgyMjU0KzAwJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKHVuc3BlY2lmaWVkKSAvVGl0bGUgKHVudGl0bGVkKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA1IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKOSAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCA1MzgxCj4+CnN0cmVhbQpHYXVgWD8jU0s9UCd0cmNCT0hCIWNRTC0wXklcJl5YXlpXNCMzJVZINGJJI18wOSFoL1M+QVYsLTJIRVlmNUVQIj51ZFdjWiU/RGUwdTFqakRIOWloLjxfP19PSlBNLDVNPydkWW5IJ0BYYSdmRidOMGVCY1UrKT1MdGQuNXItIkMlZypyRXJxUXJcYk45S1xBbGkoPllDbmJzPk04ST8wLXNScSw4cHBVVSptQiUySlkrXV8vc0dxIy81MmU+KUYjVDxVNSwlazs3V3NqTTpnUFpJKjw3UDRBJjAjYSgoO2FfdW1MWFRnUCYiZjFMckY8SmE9Qi9vRmJNakNcRGpwMSIkcGw2Z1RLVm11XTljW2VfcE9XJE5YN2BtampoSlZtTixzInUpbillWT5GKmk/Lms1PilMSyhnTkhQR2FOKHBvLGZkLkJfUlImaEV0R2R0I0hELCpAUW0uajh1ITMybT9STk9ZQiYtSTxKbFppLyo9T2FFLHNqUztaLkQzYmtPIXFtLD1TUjd0SFpoJ1pFXCpxWUhgQlc7JDVMLy5sSTVudVJtUVxaMilVdUB1OE8qPFVeZz4paSVLVi9LMCJDS2VWaFtKJEBQSSVwNE0/Jmo0JFVFbEhIckE+azdLLj4oPHNWbjxVVyhrbydyV2xVVHBmWU1GSXFEbWRRSGdVaFotQ2AuTzdKXF9ibzxFalAvZTpLPW0rczZFPWk/J1RQci9EQVgtNXRmbyo8ajA5dSxyZHJXQChgSmpzJyUpQFs8TVJsXW1kWmpLdUdvVC89P1VMPCl1K1JpOzI/SCsqVixOWUluWFJXKEZbLkhxRVVIX044MnJhZk1wKChHXiZeUVleXEREbmtYJjYqUlFdZ01abyFEJ2ZdMkwtSlY0cVc1UyslXDEyYjxVNGZRayZqYUI/QVdyTz0kW2JVamBfLSEwRVdTZ2NBTXU2YktSISZWImFBZnE0ITpkKE1AZStkdVBcPU5rOV9II09TYU5TY25gbVAtQWxoPTslNG4/LSxUXzU8NWMnZU9RMVA8XCxjK1dZUVxhT21APGpEQzE8Q0FZPXNXSUEoPVduLChMTWxIUWJAOWNDITFuPTNLMydJaT9yNUxPXVE6YzZkVkpRYywjS2lfLCkmaCozczVMQjtgW3I5XyI+KENMVy5YUmpTPW1tYFFbOV9DLVU+MnAqYzAoL0FiLSMlajJfYzlnQmVHVCNjMURCNGInSDl0P1pvX2NYV0wuSGQvUnBvQiktLkIyXiFfPy1CLU5pZCw1aig0dW1CcF0rclA1amVATHBlU0ZeS20tT0RpSUM1SEpHYD47JWUrakE/YidIO0pkJ19WTz5Na2RqPGNpZU5cWl8+dSg5XkpzXVpBPio3RVRwQFxhQE84amUmWlJldFcjVT8lInFLUFZTI2psYGAtaEpMRltpLVo/JzEyQUU7OUcuW0hgW0ZkWV4uYXI3Uyk4R0BuLUljblBcXFZmQD4rVCkuY1MkcnNAQiVHKD5NTlNaOlpHQDcvVjVDKWVcO2lVKUVMSFtKaC9BKTxMQ2xaRyNbXCFVWGAmLSI+XC0pQXU3azUnWGhCZCtPblBia2lbYUJnKzZpaDNMKl5SJ2V1N2lIIkk0X0xDRW1ZYUc1UiZSJy4qO0FlS0NrJytBQk0kZT8yaWNrXio8ZjdtY1ksLWk4YjUwVlZmcDE8c1trOD5ndHFRKSdxb0ddYUdJSTVQQDtQR2dxZ29pKzk/QUFVLEFxUSM1bikpYWlwP1ArNylgOHNiMjlSKlpHW1FUci8tZCxKQXNoSVtfSCkoZyhrUC1oN1JUJGA6ZE5ZVz8vdSkiOXRoN2ZJY0UoP1M3bitIYkQ3PDQxZ3JkL19hNmIlNFtzamVZPVhPLm9QWCUuaCxTI0ImXyI5LlphdVNrQjFCRltWQCs2KVssanN0ImApWk9LZCJNb0BEayI/IVosQjFualBfUmUpVyM2U1YmalZRT00nZlw7aERYOUc5bGgxRnRwXmVtbTNicTNtISRTNmRoZm9dXmohYCVwQ2NgOTpxXzxNIWwoaklCZVxKL1c7IiY+Z0dUKU1VNz1PQ2M6YkFWUzB0J3M2TmNNYHFdcWo9QEpEKDo1aWVBWipPKmAiNklJME9nR1krWDQzNVVIWm9SLFYyJCdZbyhaJlJVKCduZWEpVTdXYkdZayZbVDldS2hOOytUNT1zYDMkLFE5TmBxLS4lMiElZzB1YytbT19xSWNDbmhNV1JSVVo7MV8nJmU7SGdAUlszIXA0K1opbjxgaG1JZUBST2xNVUhaY04xdC9oTyhRPld0Q09OWkEtZURrNEdkS2J0V01FJyphJDwhWGtnQy5SSyxoZzFuMmcyZk4iQCFDOG0hNjZnQ1hZLUFacy8kM2lZQDhKSio6LUt0JjBrLlMqUENsTzhuaCRhSm5HZjQtTlpaNiNjKWJoJ2RaL0BWRmkwQyxkMzhyZmBYOjAwNlAnLkw4OVN1bzI0YWEoPDE+RDkuNCJGMj5RR1wxJmNKdWhKTmE5VV5tSHREVUVRZlAuLjRSOyIiTU1jRFU2Ml9QWVJWWHIhLmk1Pi5XIjhKV04/Il1wTXQtX1JoRy1JWy1IREAmKC9tZmliV2E6NTctUFxoXE0yWWMsX1tDNDFMV1stX1pDRVwqTC5dQjVXIlwuQ2MuPCs+IlVnIjBJX3M9YUdpaCViMFEmP1pKZW9BTG9lWHEmK19YYmJvKzJ0TjkyQEdodFI5MV9UXDZVUDpsPzUjNDUtMk8iU14xWHRLSiNwPFImMTMrQHJmXm9ATTYzOGBNWHJTSSwlSD1NaCohc1lWM15VYWdNU19PIjdTTklPTS07Wm5EWTExR2VZNDZrWVMma2IoVGlBRTBDVTxwOFdyKG1lXXJla0dbQi5QZyxzSW9qUUUqZWVddENEXzc9XGw4PDJvPWw0a0Aub0w0Yk4iLmssRFs8QCxxajltc0xSXSdnJHVsIiVmKkVtUmNeVS1rPElIQ2E/US5MITwjOCFXMSYtbWFVN2ZnTExjQ2BbZUNgPSxnTFlYX2UwQU0/WjQnaGhkXGFmVF09cTkoOWFdbXNiciJwY19iNS9AVXQtRjpPIV5TUTorclRoRWEqYUBkPiduTiEyWnJzWktiTGlFdUszIUhmInFeSjAnLmBjc149aHFJUCtcV0s3XGVZRitqcDlybiozP0w/OWpxR10kZyZWIXI2RVpbOCMtTXA1YU4mWz1AVkU0LmxWJ3E+OipWcjA6QmtDSmskPFdqTTJkS086cWAqZCVbYTRtUlxVYkdQaEM/Zj5HUVgqPWdwXjVAJXFhJTQtZVEiXD41Mm8jPF4kJCVMKFgxX15mRGYrTWRfbl9rQGNoWENgLy1VVzQmKCNVZEhXM0ljSl4ncVVtYEo2Si9oOWU5bU9KUk1XUEErMWRgXzBjX2dVLWNMM0tNI1FPVVUuRHBRXU8hZTFWJWNKJDgiaiVqJygjcG00aWMoQiVhTDdJJj1BQzgtXDdiJGE4Py4jNmdFbDo/WU5Gb0MnYXRmPkhWbFNrJVxcVmdrLGU6TSNTPWEsOEtbSy9iRURrcWVHQmZ1Xyk+XG9cPEcjNGgiZmxYXDQsZk9DUkYiXEk5YzFWLz1oaktCJHFIMktOPkpaLkYiZyVcW1BybU8ka1xwJCVuPlJqWztTR1MiQ1QlYyUxayc5Kz5yWVcoQzc6QSJqNz1aXyU4b1tiRCdMTSg6InRANGo2bVAwW0NMPD1xRmlIMCxRPEA1ISxxXjZkYHQzOzMuNWpVYUMxW1xBWTknWyxeQSRrMUkjMy1nK0xwKyw1KWRDLGpIM0BpKj8+Lk1va3NVXG8iLjA/WVlJUWdtZy1WKVZpPF9kbFxAMXJHTSlURW5pXiMtIj1wYUU2bW1JJ01NRFlpNlowO11abUorXC5HcltxV1RxRnVbPlQtdSxUZHE0IV8rWV9vNWBjRFEhMlRnY1EvQTNZQTwyYl1BTmtPMjIianFFZSwoKUhNQFA7c15mJjdacG1AUTZYSkBtIVNbUk5sXWBfYWJJS0g6SmNoRGVLL1VcX2svc1R1RjU2STRIND8sL09TT00iL2s9QE91TjgzXltfaktjJ1s/RSVGRDFlaFFJLUkpUnRrJz9lZiVxQi5qUj5laSoralJncz45XjsoVSUyNywyZVR0QE1nSjVCc2Y5TGlOckIwSiRjWToiazNeOEppXWhabSpuckBzY1hNOG5HM3VLXiJDcUtQbVhwLFw3bllRS1daTTc+JFgvVkJuZTgrIz0mYk9IOSooRVg+Mmo/UGlIIigkKDY7JTomIVMxakMvOUw4ZD9cRlopPyVpLDsiJ046MmBIcltJVkxzLEdvaSIpUjAsZnFPZ0ttT2k+JiclYyU7I1NuZlA4Y3NjT1AwVk9WKUBBRDRQc0dOM00vN2hTV2syIldtakcuTWQwV0ZvO3MyXzdwX3VHWz9XOGopOCE9JlxkZDpPSWl1b3I4WVksXXE6aCdENz4xdC9CNlNTR0hjPiQ6YU0jNFAtTSJTRzRqIkVgYzEvT1FKME0yWz4uYU47T0JSblRoTV1JOkcwaDVvayxAWD0jSCkjKDwuUyQvVldeK0lQKnFeRkVhanNEcCEiPUNlciREaD1yWWEoYDwrSFMsLXVqJU9WKSduYihINFM9ZVlFaD10b0Bncy9eWUIzLlVbNlRKPFAoXjkzJGE7aWUzTGJUP2goc18yM0FVYUJxRVsyYVwwRmNyPUE7YFM1KVNpaiZAS19KLjNlWkQiK3MvI0cxXVV1WSIhR1RTJC5laWEkRlU0dV4sP3I9Jld1YCdvalBScD5bcmohSWhKP05DJG09PnJJT1BjL1RlTDpeQFVwZzpBaFApOWYxbTZzJFwtIWh0UiMhV1JgJUw8ckRXTUlaLEtGLVtpTmVnaz9GQSE6QkAjWj9pSTxwQVItNGpvMCJVUl8kZkImYT9Nalo5VVwtI1JTP0toQzcuZlI8ZzpgaFNPP2VuQCU2QFxxZy1VQ3JEXCFQLTRgUCtWQmRrOVJcOT9rNCRcJGstJk4iX21uZkBwNj9gXTJrT08sOlE/QTxTaW9fREJibkFKTyplIV8wYGk2cVZBW3FiIykwKDdKaFgkK0N1cF9uU0UhLXVbIjdyaTByKWkrQFBGIV09PztYZ0EjJl9cNlVWXjZmOCwhW2UwYG1KNlZoMUpkNWlHPkNkZm9PZzJKVDRLW3FtQ0s3IlxoUTgyRyhVVFxxXzg5Q0hhaEMpW2lTci4vdDdbc1ArZWZTIzlJQGdDP1Y5OmpFZiMxVEQudGVKW0xiWUotTWJLZGRBLipmbjRKVCo9QjdFLl5PLj5qPDxvWVlSS1FvdEZuUCEmRCNkJVVkI1BqZz9COlZKZE45O1dDLFYmK0xQY2VXUDpNVyNLVUtQSlllYldRK2AsciJoWCxuJE0rTyxRT2JtWHRKT1MpLVtxN3BaNT9RJSpITFAvaSsxRWJeJWIiJjs6UWtAPk8tNEM4QD4sVUAka0EoRW4xRHUwLVJRcEgpSEM0NEwoM25SLjJwR0pYbi45KDIlbCc7XylZLl0wUEFoY2hnMk1UWlwlZkdnUD5LSnJcPHQncXE5WSElPzo7PD1NXG03VCZMMGpeWFlbbWA+RFN1ViVFQ2UnQkg8ajNiaCVzWU8iQzJfSlg8cjlcTGArZV1gJEAwQ04zUUI8OERrQE04c3JFTS5cMyRHaFJdZzFUPmQnTTVMYFNWRCxvLm5EKkpvYDRib0UncU5ZLyJuc3QsSDo6bz1HInE0Rmo4Oyk3XUM9U0E/Yz0mUmUwTyQjU0czUE9kbVotYV5mPzs5aDYtWmpdYklrPSNbXkBcbEVwNE9GITpLbVlQazpxYnFNP29dIzg/Rj8mMHFuYGBAUHE8TCtrUUJFUl1ZQFtUUGVLUEBAYlNJO181ZzNeJmE1IignXDNsSURhVUYuZWhCVW9dJ1tOWks4RClgOlU2TCxLXTYsJzMxRmtVR2FvMSNdX1tXUXJYJ18iNjpJXm4ubSd0RXM9RiZLUXAyNUNsRWpCUT1VW1lnSXJLWGFMMUVEOVBHIjBFZVhrUUJpYEk6WltcQmpLaGpDU1NxODZqUmRsKHVxJj1YUFJXXS5YW2JpLkNfOV0xczM+Ijw3cDxzTGYrZS1yXSVnSjRkcmQzcThUOmpBZ20/KS5POV1rODJGW0IxVyc4K0EzSClFNHRyR1E9JTc3MyxWWGRpUmYrJSo3Ul46ODhvNjotTjZ0PDkoMmdMPjFgdGRvJENeb1Aqc1NNPFEyXicocFdcYXJHNWFBSTtHIiVYJjdgaW0xIjlrOFEtPz5UM0thaGdSJ1AyNkhRZixzaiNjWGhibCwiMjgybC1ebTk+XmFOIU5AKkxiV0lyKGhvc19TS1Q/NjY0QTlaMyMzXSlsUFQ7J141YzA5QURwJC00NzJjI19XQWtMczBFYFxKIWFFZm5MamI4ZlgtTjI+K2R0dF9Zb3I9Kk5VS1YkYkxTZElOKi5YJ2dIVF46LSQnVjA4RUs4JWtxRllUQSs1ZStmZEVIWzxLNl9XT0drTzUvPkpiQTdJVEhIMTY8NUFsMUpjaSs4IXQ/TGRGTm4lJyxPU1FzdEdkM3U+OCpsTUBMJzg+J11tW3RDKF9ScjhFWG8qdWosdEgyK0FlOS5nPF8wU2RRbGRQLi9dXXVPbV9Mc1wmLnA4VyY3YV5bVCNAXypGW0BBLE1IS01ZaUUyJEVYXmZpY3EzazQ6Lks+QWFEX3I2UDphWnA2XTciIyFcOlomPEcrV09lYEpRZT4+ZjBZXT4vZVxzNjxrYlRcMGBjNEpfI3I8b1JWIkFeK3VpV08/IltLZjc4ZjBNJUpZYjB1YyhaPU08KkM8VlNPXCc4YT4vUF04amNcQkVaYDtTUXVQX2YhMWFaXERAMSQ7UnAmb0BQTjxLY3J1Q0A3Mm9oIVlKcytQIXFQZ1JhRzIrMVdaY0RtXy4lT0lTYEguVzc4Sl5IclE3PGEwOU5YRlhsZyFeKlhHOTEpZjhYb0oiLiNgWEI0YjA1KCUtYFdII2ZeO0Nfamo4UUBCP1tlZ1lGVVROPmNYaCZWclxecVsnVGA6KVlmSGBcKVpLSSNYMVA4LztQSCNGNGwkNi5pZllpJVtyWT1FJj5SSnIxJkhJczZnS0x+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDEwCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTEyIDAwMDAwIG4gCjAwMDAwMDAyMTkgMDAwMDAgbiAKMDAwMDAwMDMzMSAwMDAwMCBuIAowMDAwMDAwNDE0IDAwMDAwIG4gCjAwMDAwMDA2MTcgMDAwMDAgbiAKMDAwMDAwMDY4NSAwMDAwMCBuIAowMDAwMDAwOTQ2IDAwMDAwIG4gCjAwMDAwMDEwMDUgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8YjUwYjA2N2RlYmQ2ZDg2YWM1OTdiOTRjZjVmNDI1NDQ+PGI1MGIwNjdkZWJkNmQ4NmFjNTk3Yjk0Y2Y1ZjQyNTQ0Pl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA3IDAgUgovUm9vdCA2IDAgUgovU2l6ZSAxMAo+PgpzdGFydHhyZWYKNjQ3NwolJUVPRgo=';
+window._cvEnB64 = 'JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9aYXBmRGluZ2JhdHMgL05hbWUgL0YzIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNSAwIG9iago8PAovQ29udGVudHMgOSAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA4IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago2IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgOCAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL0F1dGhvciAoYW5vbnltb3VzKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYwNDE0MTgyMjU0KzAwJzAwJykgL0NyZWF0b3IgKGFub255bW91cykgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYwNDE0MTgyMjU0KzAwJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKHVuc3BlY2lmaWVkKSAvVGl0bGUgKHVudGl0bGVkKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA1IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKOSAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCA1Mjg1Cj4+CnN0cmVhbQpHYXVgWD8kImFbWkAxPy41aC9uUEgpOzQvcGBiUmxbI1Y4NV1VUWhnZ1I1X2NvOmVkN2JbIWg/OzAkOCleXSQsXlRZIVlHQSomR0pmMlJgbic8Jz03I0E+KilhQVNpJ1RCdVBBP08/OSE8a05gJ0tpSSgqWl1ITGdpcUJMQWhHMDU1NCFjW0s1QWE3RyxNTTZpaDBtcDpTI0crU1UrZT5PJDxOJWwnVkJsMCYqQ1UqXm4zQkkvc0dvbj1kVlRbMj5pc1lNPStScDdjaFhFOlcxaUBrQDZeJ2BNOCs5PnMoJGU2OUtlQSYzPDMuRjAyZXQ7TyszMWpQaz4vOjJXaGFoZDJtXD5sPnBjcyE7UTRtVy41YD0vOD00OkVzR0JJOzpjZVRiPG5GZVRMS09vXUdsRGxMamZHcDYsLnExUiJfdWpuTWJXa1liWW05Ry9rKXBMdW0mPWNwZUJNM1gxNTh0PUI4VGokNUYmZWpKZDVJOj00ODxKN1skZnErTExNYD1rKCc9MT4/XyJqIk1ZJClXamkuLF1bSjI5TW5ebSRbV3QzWnBrNUpsR1RnPmZtNTcmL2wuXjBeRVFwWkReTzoxSj1gcCcxWF0nKWs3KzQlK0hoayRGcTUzNVoubnFbXSZNcTI3S2Q8Y3JxcTxiKV9VUzRbSWBmKFVuZ1x0LkJKTy0oJyIhM3RLQkJyajJSVmQ3Y287UVBNZV9mZWBoLmchQGFoMWM5KHBvTjVEcTRcJ2sub0M3IlFPWDRyY2JvT2YmJCgkZWJbaGktJlpRTz0+QywhV046PytfIkUyLjVPTGVfaGVedU06bTVXUV5JdFM9YC9wXDpBNi5JSiReaiNqTE1YOHRHJ0VcUStQOWJiVlZRWjxsOz5IUmw9WXVSNUA8J2VKV25eW2pncy0mZSNHIi8wPnFTOi8wUEpnZmYuRFE9OStMWGtKYDdiMToqdT5mcl0+cVw6IjJJayxBNCRAPzFwO2YrKmRhcS5DZWNyOW1pTjJaSmo0WTJmXHVUPWNdO0dJKUVMaGhxI0c+Om5HTyMscz9oNklKJXJPS0EyP1MkMVJQXGJaPU04ZDFpbmxCc3RMXXE7cWheUWVFVCFFclBNTCJBb0ImZzZaQWpNVXA8SigzVFQmSmNNMlY5NUFZNkl1JVVsIywkZjJnOGg7YyxEPjFnR1xHVEBISz5lZFMpbChSJnAlR3BUcTwhbUFfZmMjaWdDbUQ4I15kP2UoZmVRNlNrN1Q7ZjJQTl9fOlFjYyVEU1pSUChzXVVAWlw/cSNeMFJrX3NjMG86JzdKIzUyLm1qSF9uOXNrTlNnMUp0J14yQ3E6O1EhKW1qUTtsKUFBK1ZqUUV1aTlDWy02PldHMEMiO3MoOydtRkQxbEtaU08pIT8xdTxjP0o6KENjdSFnSWMsWy0lUHVFKiw3SE4qJVB1RSctOUReP1k0Y0MuND0/aHBgaGdoSSFkK2ddR1VqRVc+PkxjQGUwbT91UilnaVA7IT5XS2VPNWwwZGBBXD5VLVY5YFtVOXBwZUIzPmdrRDhOW2JVOCcoUHV0Qy4wcURqI0FkKT1tZTkubjdMUFgwQlk3W2ZfJnBhVG0kdEQ6KmVldDQvKDFQXENSVVtLYlo2I2MpYmglNV8yZ1BBbiJTT0tTZWU7aTEhdVVMQEcldHFrY3VHXVRYaGhnbi4qdWVdXUJHK05cPzohXjdqP1pjK2ZWTTYjL1MoW3A1JSI3WVlmKGdxKGo0MmVZUnNDODJPYUMxckJBMEEzSkAwNHFRLSYuaFYuWm44Y0YnMlgsL3QwYSo9W04vMihKTGtyLlFXIjhKVyRJT1VqZWZONFUzTkdZWjNdQkUsPHRqZkEuKEBORSFRQFQ2Yz8pcGY8YUIjS0prUWhJOUpcNT02LlI4Zmo5JSwyXihTbVRHVSU6T1lacVhYJk9WWG9fTURvXEtvIWZyTjs+NThVRy83ZmpDMWZUckZJNz8rWkJLbTx0aFMoNyZxTnAvNSQvckJaIUsxRW4lKkJGK2JbWktGdUI5TWtxL2pBLC9QOExoNi5CPTldLjopOiNOZF9fSyhAQT01LFxSOi42X1o2I2MpYmgiNm80Ljk5MWprJzBSXFM4LDtERUhFKVhtTFhBQCwiI0YkYk9gbiJbM29lPj9YUCFfUDJialomS1QxUyQ5c2w+Ij8kSyNJWz0kWUFCVl1vaXJwdGZkRjBLTls3IypSNzwsZWR0R1xyY29PWEVPS1dZaUJvTmRiWjJMUCdZJUZIcDEiXCYyVFo6IzBVbEpyWFRjZUdrJEFMaFZAT21mVVNLOSJEYStQKCs4Q1ZnOTYrUUBTKGc5RztMSFxPJCYlKXUjQG42ZCZXYU1BQCZvQWQtSUg+Yys3UllnO2U7Kmk8PWNfWzFLX04qWUQ4cWBLbCZhQkVgOUtiNUNuR0ErOCUuSkA+RG9VTTxaJEVOJzFQKT8vMjBCQCw/czQyblAkWyZySUBRMzwtK1hSRUEzOS1pRTFhJjx0KixbYyo5NktkPF5jSjBPTmtdMHEpOilrRE8oNickWmdhO0A2VCQtKWlddDFkX25QRi5EQzBAJm9BJ0wqNGBvJl46Xmw3JClPakhLWUlZOVlSZ2c1Uk02VGpZWGxMMEg8SnUzN01AMlxgJlhPMz5OZV9sUzdcQkkjVUk2N1BmdE1JLG1GL2hxOzQ5UkJnWVlTTlgnSVNdVTxwcVhqYSphNCN0MmhYOkJiVlpdTDBYVmZdNz9uWEkuZnQsbm9uTk90JnFfdGBvcHMhKShoWGtITVVQR1BrIkBjMTonSycvTGxRNl4uJEtHK09ZVkZtS2I0YXJZSDw3UFVFYCgpKVY+MEg9Q3BzMmk8ZjpOLFk0SVxgOm8xbU1vaGFoU2tqTDUhaE5fP2k8cTMhI0NxaFJHYSY8ayZiIUFrP3EhPm1sZVoyWmE7Q1QrLUlUJ0IlS01wZ3FYIVtoKmhiPjBkcDtIVEE6VHVlMSU6cj9WYDxvV3JRL3BMV19ZaV9gYSg/QTJKQkQ4cmI9QHFGQTI8SUZGcEVLSj0pVF9LOjNnZkhvNEEuKS8+VU9KckJuUWxPciUqZzZaNzRSKWQkIkMpbWQvJ3E2Y2EjaXE6USRDajVXM0VrTi46PjVWUFViIWxOTl5RYGxJblJta2tbTSdgWWNfaUc3bigkaSRncytFLm1FOSluYjVdOFVYTkw0S29VZkYuXT87IzdxWmY5OGVddGJhYWdTcW1IbShFSE49c2taQ1Y1ajVGSkNIIys3O0FoM0VAYiMtQzNURzxeP0RRRFk/Z18/Y2xFaihHXF8oUWBCdDNnRE5tWTRscVRmVF9hOW9NcnNiVmg5NlloVXE4MVZBcCpiT0Y6IzNoZz8qSWVoLF9kSDxYNVBASm1UaD5GTSdSdExHN14+X3RMUjMzWiUoJVtPQm50Pyp0OWhrR09pJFpCRXUjOVhTMitWOmJUYm1TLzA8XU00RGcsLDIxSjJFNGhEYk1tYUsyMDVvWmZpPmBXTyhZQiJRV05YOjteYkdjZCJ0QStrUUgnJlI4SltpVHVRYV0nSlpkM1RxKyQvMFYkMGRHRmlSWTd1RyQ/ZjpgZHRZayJbIjFQSEFTSjUjaE43Y1AmY0RhWVdMQCpUYCQmRjlvTTAvLzRqS05RNkdBVlNpRkxuTnNDYyo3ZmZmb0dTREFoJD84LVYiO0MmNlg4JyhaJTU7XFJIOU9MbGxERyprOGFPOiRBNmhNK3RuNEtlRyE8KDZpPXRDKiRZLFdEPXIhbj5aRTxoOkYmVy45JW9gWSteMEtnTS9ISWNrQDFeXD4jUk9sIlU9RGEpJVJFUlFMVWprNmZoYSVbQkEoNCY4JSo/YlYySidhdEdRa1IpNjg8MG0kV2dNXFY5N3NHKlE9RDtXZG8vUj5BKXNSK1lXPy9DLzhDc0AnKnJiY3JxQicyQ15FOT8pUWRiXEFkdWlzUUtxM01TQUJzS0lAXVouREwxUzIuYC49NigqLSRCRz87RGoxKEw9UGFKY2BCJElpKFpaYEdhZ2MvI2shMGk/XWRaXVZcKVUscWlBNUxsSmhTNlhPVmhLbyIpOjdYXlotXERfXkREbi8pJWE6OG1qZltHQzIqa1NxWHJnP2AxNVcjTi0hRjF0XElWcC9zciRWNVA3bmIsbT9VKlxVMDRzQ3RHMVRjZW1dL2UqY0ddI1FqTjc+Jj40N0JyMG9DYz1yJD9tXUhUZiZMaEpbVy1PMEJSSlcwVFE/TDsxJ2hnKzgiUldyO1BATSI3N2tMdTIuQ2lvO0tFcW9NdUhxL0dsR1YtKVw2R2MuWi9JO1pfQmxWdVRIQ3Fpc0BFbDpASlBBJzorMUY3WUdJZSc/Y0NQXTI2cD9RYlBtJkZCNnFCWDtOQik8JUA0SD42UHB1YXE9XVlhVmVFTzRMdGhEUyNvSDJdaGJdUDYoJ1hCUU4iciJUQTclT1UyTWEsT0M/OFJfMlZSQSs/LTZoS14rOT5CTUJrWj1nam9jIk9CV2NhWV1ERl51LlE9aEFHPFpEKEgoQl1xPl1fMSdXQmxDOXJYT0dZUU80VmolIUlOTTc6WDxwPkhtM1YnTUphLWxPV25qbzc3Vzw9a19TMy9DZktPbUwrR2pjXigiO29JPT8hcGtCb11XL3InR0NAQnBCSkdISnJBTHAuVTcwdCpmJGBZXSQ1cEdgTWcjYEhGSioiKkBAb2JkQDFeNWd0ck85TCwqU1lwMmk3VUY4aG8tPm8wcyNCSjZIUzdwVmlnOVBtOD84YF9ocG06Y0hiVVkpN2E3JyxpbTF1VkBoY0pnS1ppMzEpNEM5IzMsO2hRcVllXHUqZ3V1W25NLDBXcTpqKUFkcG1yWnJrcCYmIWdsamU6R1RySD5DYSdMXExidHNXbm0pTHA4YkZNaFNdM2UiWS8jLXBLNiI9ZmxSSFtyRnNAXTs2SiptPSlpUT48VVgoPD5bJlBxPEpNcj8zKWw9TSYlYko6Q1M8alVBJidxPUM7PTU5V2hMVjAuMlE0YU1eZGdLUDRgWyI4Z0BxKWZnNilfQ0NOQDRaPk9LYypkcmpjU0c9J1hZYSpwMUhXb1dzUXVmVzBMYUg9PE1uW2FeTVwyWSpOOz1aKGE1OmsuIjgnREkqYyRTV1BNQCxFQikobGdvUVRpLGMlJmFOZyVvSjBcXi5VczYkKyItZnBeUENBcV5mVSkpOSxlQD9DbCdOYmtDIk4rX2RKbmEnVGxwbkM/UGU3cHQjI1UsY09AbHREPyw9Ol01b2ctPTNpKXNePy4tI1RzQjdlOjshTXVpUnArKVRXcExyLV5nVS1yViRTZTQ7ZklBLyMrXDRDdDZvMl5eJlMrJWY3NldEb2Q4cmZEYm9yZEhkZ1g8OiZFU1A8MlAxUSNCSTQsbURSPC9rSF5MdWtCWzEtRmIlUTdqV3VraGI0KU9taEYtXlQnYDBkdSMkbCw0YzQ8J0EsKjZKKDk+aGQ2KC8/XEBjJHReJlQ5XFtcJURhaUE0LCRga2tOLC0lXU9kXzBZKS5LPGxgNmQsKUBqKiYnTl9wblxsVVlrXyg0TVhaOTNuOHMoOz4oTUkmYTZUXD1KJHNnXCdkcU5xV1xBY0FucG1aaV9VZDtZcG1mOik/L2lASldeVmpdWDJWND8rRU9jS1E8XFw6NycjKk9ka2JoYi09YW0kcVdrWFYsVlpjRHNZZ19IZ0hGaSRzM21tO0tuYkgqX0JSZm5ISzxaL3FMYV4qamZHMEQhbV5vJGUqPjk7InFaIy9RIlwxMjFSZGxgQEIzWiRkUllgSkEoNEQlV1hySF50UE0lWUQ9JU5db2phYVo3OyxTPi9raGNJIlpyTUpQXjRxSEBxazdZSz5JbEBYSkQuSGUoXycnRzZ0Vm0iWTleKWhhYmsuQS5zS2wyclFpN15EXDhgYC5mT0BrPW1GLk0iOi5WPURIaVlqUGsyLjtVVlsjVSo9JXViO3JRI1oxLUZIcHBNTj80Kio2QVRFcSh0WEgia2ArLy1LRmRaMyMxazJfN04nZ1E5IkksKjpeV0IyaGFlVHI4JGVNY2RiJ2YzJHEhMWQkOyJZM2RTKE0qYmNqPjg9Y1sqVSV1YixtUS1sKjojcVZYO0IpZmk1XyZ0MzM2WiMiMU42dDw5JWJ0XzxCZzBWaShjOywuLDRuQSNQXl9zPGZqZVxWNUUzJExQJiErc1ImMzRaUSduOC1SRk87ZlpHJGRzRjtiaUg3J3EuP1Z1OW8xcyluUHA3WmFpWy8oMFtwQEBAWlxWV2VYOidjIWksYCdkZ2NUcyQ+bzY6PkstVUhab1JPZF86XXIkWTo7ck1gODJYRWEjWyszKT4zQHVFQShLdG0qcT0zRi9DUF9XSk5zMEByQypNZGM4VyIqdWdxXjZPKk8jczo9YzYoME9uL1VDbFsqQTBVWEssVlUyUiVGVURWQStELUs4LCxNZDVEO2lvNDBxR2VKLjQ9Z2tZKlBeSzcsM2FbVXNTKiEjZVYqNzgmb3I4S2s1c15taUF0YkpDWzhxPWRvUEpuU2Y0ME0mPkQyaDNPRC4jMzYicCNEZD4qTjM8Sk1EaUZuQThMMmQuUnNQLSdPLz9ZYlxATHNTMVBJPzpXZTxMclxmJUoqJyQ+czQ0KiZRUlhOWT9vYUZPdHNZcTIzYjlnOkhAJCcsWFxXIikrJy1wYCMuKlo3NWlMUjE1N3RIWTBnPWoyKDEzQixqLSktXys1YydcNDJFczljL29JQlVxV2YwT0gnKFxtVWJCNGZZTypnamk6UDpeP1lPaGtzVnA6YkUpTVpWTCxFLk85XWs4MkZbQjFXJzgrQTNIKUU0dHJHUT0lNSIwWTA/PC5rcSMlOTcvOjVoSCFDKVA4Q2VjdUpLKGA/aSNfI3InTkhOVTsqTGhVVlo0Q1A5NlppRSFyRktzVyJ1VnRJVD45dEleXVVlJG1bJUNBVDBbb3BAb2EibjFXXkdrVm5YX15IVlMyZW9dZFpQXC5cLlJwXGUiLD43dHNTJFFKQGkmalMpclhYdUBeWiN+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDEwCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTEyIDAwMDAwIG4gCjAwMDAwMDAyMTkgMDAwMDAgbiAKMDAwMDAwMDMzMSAwMDAwMCBuIAowMDAwMDAwNDE0IDAwMDAwIG4gCjAwMDAwMDA2MTcgMDAwMDAgbiAKMDAwMDAwMDY4NSAwMDAwMCBuIAowMDAwMDAwOTQ2IDAwMDAwIG4gCjAwMDAwMDEwMDUgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8OTY1N2IwYjNjMWI2Yzc1YjU1YzYyNGZkODA4MGI2ZGE+PDk2NTdiMGIzYzFiNmM3NWI1NWM2MjRmZDgwODBiNmRhPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA3IDAgUgovUm9vdCA2IDAgUgovU2l6ZSAxMAo+PgpzdGFydHhyZWYKNjM4MQolJUVPRgo=';
+
+// ── THEME ──
+function toggleTheme() {
+  var isDark = !document.body.classList.contains('light');
+  document.body.classList.toggle('light', isDark);
+  document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function(){
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light');
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = '☀️';
+  }
+})();
+
+// ── LANGUAGE ──
+window._currentLang = localStorage.getItem('lang') || 'es';
+
+function applyLang(lang) {
+  // Placeholders inputs
+  var namePh = lang === 'es' ? 'Tu nombre' : 'Your name';
+  var msgPh  = lang === 'es' ? 'Contame sobre tu proyecto...' : 'Tell me about your project...';
+  var nameInput = document.querySelector('.form-input[name="name"]');
+  var msgArea   = document.querySelector('.form-textarea');
+  if (nameInput) nameInput.placeholder = namePh;
+  if (msgArea)   msgArea.placeholder   = msgPh;
+  // btn descarga CV labels
+  var cvEs = document.getElementById('cv-dl-es');
+  var cvEn = document.getElementById('cv-dl-en');
+  if (cvEs) cvEs.textContent = lang === 'es' ? '↓ Español' : '↓ Español';
+  if (cvEn) cvEn.textContent = lang === 'es' ? '↓ English' : '↓ English';
+
+  window._currentLang = lang;
+  localStorage.setItem('lang', lang);
+  var btn = document.getElementById('lang-toggle');
+  if (btn) btn.textContent = lang === 'es' ? 'EN' : 'ES';
+  // i18n elements
+  document.querySelectorAll('.i18n').forEach(function(el) {
+    var val = el.getAttribute('data-' + lang);
+    if (val) el.innerHTML = val;
+  });
+  // nav links
+  document.querySelectorAll('.nav-i18n').forEach(function(el) {
+    var val = el.getAttribute('data-' + lang);
+    if (val) el.textContent = val;
+  });
+  // filter buttons text
+  var filterMap = {es: ['Todos','Horror','Acción','Plataformas','Simulación','Puzzle'], en: ['All','Horror','Action','Platforms','Simulation','Puzzle']};
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(function(btn, i) {
+    if (filterMap[lang][i]) btn.setAttribute('data-' + (lang==='es'?'en':'es'), filterMap[lang==='es'?'en':'es'][i]);
+  });
+  // re-render projects con idioma
+  renderProjects(window._activeFilter || 'all', lang);
+}
+
+function toggleLang() {
+  applyLang(window._currentLang === 'es' ? 'en' : 'es');
+}
+
+// ── CV DOWNLOAD ──
+window.addEventListener('load', function() {
+  // Inyectar CVs como blob
+  function b64toBlob(b64, type) {
+    var bin = atob(b64), arr = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    return URL.createObjectURL(new Blob([arr], {type: type}));
+  }
+  if (window._cvEsB64) {
+    document.getElementById('cv-dl-es').href = b64toBlob(window._cvEsB64, 'application/pdf');
+  }
+  if (window._cvEnB64) {
+    document.getElementById('cv-dl-en').href = b64toBlob(window._cvEnB64, 'application/pdf');
+  }
+  // Aplicar idioma guardado
+  applyLang(window._currentLang);
+});
+
+
+// ── SCROLL PROGRESS BAR ──
+window.addEventListener('scroll', function() {
+  var scrollTop = window.scrollY || document.documentElement.scrollTop;
+  var docH = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var pct = docH > 0 ? (scrollTop / docH) * 100 : 0;
+  var bar = document.getElementById('scroll-bar');
+  if (bar) bar.style.width = pct + '%';
+});
+
+// cursor removed
+
+// ── TIMELINE PROCESO ──
+var tlCurrent = -1;
+var tlPillMap = { 0:[0], 1:[1,2], 2:[3], 3:[3], 4:[3,4] };
+
+function tlSelect(n) {
+  if (tlCurrent === n) { tlDeselect(); return; }
+  if (tlCurrent >= 0) document.querySelectorAll('.tl-item')[tlCurrent].classList.remove('active');
+  tlCurrent = n;
+  var items = document.querySelectorAll('.tl-item');
+  items.forEach(function(item, i) {
+    item.classList.remove('active','done');
+    if (i < n) item.classList.add('done');
+  });
+  items[n].classList.add('active');
+  tlUpdateFill(); tlUpdateProgress(); tlUpdatePills(); tlUpdateNav();
+}
+
+function tlDeselect() {
+  if (tlCurrent >= 0) document.querySelectorAll('.tl-item')[tlCurrent].classList.remove('active');
+  tlCurrent = -1;
+  tlUpdateNav();
+}
+
+function tlNext() { tlSelect(Math.min(tlCurrent < 0 ? 0 : tlCurrent + 1, 4)); }
+function tlPrev() { if (tlCurrent > 0) tlSelect(tlCurrent - 1); }
+
+function tlUpdateFill() {
+  var items = document.querySelectorAll('.tl-item');
+  var fill = document.getElementById('tl-spine-fill');
+  if (!fill || tlCurrent < 0) { if (fill) fill.style.height = '0'; return; }
+  var firstR = items[0].getBoundingClientRect();
+  var actR = items[tlCurrent].getBoundingClientRect();
+  fill.style.height = Math.max(0, actR.top - firstR.top + 20) + 'px';
+}
+
+function tlUpdateProgress() {
+  var pct = tlCurrent < 0 ? 0 : Math.round(((tlCurrent + 1) / 5) * 100);
+  var f = document.getElementById('tl-prog-fill');
+  var l = document.getElementById('tl-prog-label');
+  if (f) f.style.width = pct + '%';
+  if (l) l.textContent = (tlCurrent < 0 ? 0 : tlCurrent + 1) + ' / 5';
+}
+
+function tlUpdatePills() {
+  for (var i = 0; i < 5; i++) { var p = document.getElementById('tlp-' + i); if (p) p.classList.remove('lit'); }
+  if (tlCurrent >= 0 && tlPillMap[tlCurrent]) {
+    tlPillMap[tlCurrent].forEach(function(idx) { var p = document.getElementById('tlp-' + idx); if (p) p.classList.add('lit'); });
+  }
+}
+
+function tlUpdateNav() {
+  var prev = document.getElementById('tl-btn-prev');
+  var next = document.getElementById('tl-btn-next');
+  if (prev) prev.disabled = tlCurrent <= 0;
+  if (next) next.disabled = tlCurrent >= 4;
+}
+
+// Activar cursor hover en tl-items dinámicamente
+window.addEventListener('load', function() {
+
+  setTimeout(function() { tlSelect(0); }, 600);
+});
+
+// ── CONTADOR ANIMADO AL SCROLL ──
+var countersAnimated = false;
+function animateCountersOnScroll() {
+  if (countersAnimated) return;
+  var el = document.querySelector('.global-stats');
+  if (!el) return;
+  var rect = el.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 100) {
+    countersAnimated = true;
+    var stats = [
+      { id: 'gstat-views', target: 1114, suffix: '' },
+      { id: 'gstat-dl', target: 242, suffix: '' },
+      { id: 'gstat-games', target: 6, suffix: '' },
+    ];
+    stats.forEach(function(s) {
+      var el2 = document.getElementById(s.id);
+      if (!el2) return;
+      var current = 0, steps = 50;
+      var step = s.target / steps;
+      var timer = setInterval(function() {
+        current = Math.min(current + step, s.target);
+        el2.textContent = Math.round(current) + s.suffix;
+        if (current >= s.target) clearInterval(timer);
+      }, 25);
+    });
+  }
+}
+window.addEventListener('scroll', animateCountersOnScroll);
+
+
+// ── PAGE TRANSITION ──
+window.addEventListener('load', function() {
+  var pt = document.getElementById('pg-transition');
+  if (pt) { pt.classList.add('done'); setTimeout(function(){ pt.style.display='none'; }, 600); }
+});
+
+// ── CUSTOM CURSOR ──
+(function() {
+  var cur = document.getElementById('cur');
+  if (!cur) return;
+  var mx = window.innerWidth/2, my = window.innerHeight/2;
+  var cx = mx, cy = my;
+  document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
+  function tick() {
+    cx += (mx-cx)*0.18; cy += (my-cy)*0.18;
+    cur.style.left = (cx-12)+'px'; cur.style.top = (cy-12)+'px';
+    requestAnimationFrame(tick);
+  }
+  tick();
+  document.addEventListener('mousedown', function(){ document.body.classList.add('cur-click'); });
+  document.addEventListener('mouseup', function(){ document.body.classList.remove('cur-click'); });
+  document.querySelectorAll('a,button,.project-card,.doc-card,.filter-btn,.tl-item,.genre-card,.faq-item').forEach(function(el){
+    el.addEventListener('mouseenter', function(){ document.body.classList.add('cur-hover'); });
+    el.addEventListener('mouseleave', function(){ document.body.classList.remove('cur-hover'); });
+  });
+})();
+
+// ── TOAST ──
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2500);
+}
+
+// Email copy on click
+document.addEventListener('DOMContentLoaded', function() {
+  var emailLink = document.querySelector('a[href="mailto:santimastroberti@hotmail.com"]');
+  if (emailLink) {
+    emailLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText('santimastroberti@hotmail.com').then(function() {
+        var msg = window._currentLang === 'en' ? '✓ Email copied to clipboard' : '✓ Email copiado al portapapeles';
+        showToast(msg);
+      });
+    });
+  }
+});
+
+// ── SOUND ──
+var _soundEnabled = false;
+var _audioCtx = null;
+function toggleSound() {
+  _soundEnabled = !_soundEnabled;
+  document.getElementById('sound-toggle').textContent = _soundEnabled ? '🔊' : '🔇';
+  if (_soundEnabled && !_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
+function playHover() {
+  if (!_soundEnabled || !_audioCtx) return;
+  var o = _audioCtx.createOscillator();
+  var g = _audioCtx.createGain();
+  o.connect(g); g.connect(_audioCtx.destination);
+  o.type = 'sine'; o.frequency.setValueAtTime(800, _audioCtx.currentTime);
+  o.frequency.exponentialRampToValueAtTime(1000, _audioCtx.currentTime + 0.06);
+  g.gain.setValueAtTime(0.04, _audioCtx.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001, _audioCtx.currentTime + 0.08);
+  o.start(); o.stop(_audioCtx.currentTime + 0.08);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.project-card,.doc-card,.genre-card').forEach(function(el) {
+    el.addEventListener('mouseenter', playHover);
+  });
+});
+
+// ── GÉNERO BARS ANIMADAS ──
+var genresAnimated = false;
+function animateGenres() {
+  if (genresAnimated) return;
+  var el = document.querySelector('.genre-grid');
+  if (!el) return;
+  var rect = el.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 80) {
+    genresAnimated = true;
+    document.querySelectorAll('.genre-card').forEach(function(card, ci) {
+      card.classList.add('visible');
+      setTimeout(function() {
+        card.classList.add('animate');
+        var dots = card.querySelectorAll('.gdot.active');
+        dots.forEach(function(dot, di) {
+          dot.style.animationDelay = (di * 0.08) + 's';
+        });
+      }, ci * 120);
+    });
+  }
+}
+window.addEventListener('scroll', animateGenres);
+window.addEventListener('load', function() { setTimeout(animateGenres, 500); });
+
 </script>
 </body>
 </html>
