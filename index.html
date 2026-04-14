@@ -35,12 +35,19 @@
     --text: #e8e8f0; --muted: #7070a0;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent) var(--surface); }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--surface); }
+  ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #ff6b85; }
   body { background: var(--bg); color: var(--text); font-family: 'Space Mono', monospace; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
   body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.4; }
 
   nav { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3rem; background: rgba(10,10,15,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.02em; position: relative; transition: color 0.2s; display: inline-block; }
+  .nav-logo::after { content: attr(data-text); position: absolute; left: 0; top: 0; color: var(--accent); clip-path: inset(0 100% 0 0); transition: clip-path 0.35s ease; white-space: nowrap; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; pointer-events: none; }
+  .nav-logo:hover::after { clip-path: inset(0 0% 0 0); }
+  .nav-logo:hover > span { opacity: 0; transition: opacity 0.2s; }
   .nav-logo span { color: var(--accent); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
@@ -404,7 +411,8 @@
 <div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src="" alt=""></div>
 
 <nav>
-  <a href="#" class="nav-logo">SANTI<span>.</span>M</a>
+  <a href="#" class="nav-logo" data-text="SANTI.M">SANTI<span>.</span>M</a>
+  <span id="read-time" style="font-size:0.62rem;color:var(--muted);letter-spacing:0.08em;font-family:'Space Mono',monospace;margin-left:0.6rem;"></span>
   <ul class="nav-links">
     <li><a href="#about" class="nav-i18n" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
     <li><a href="#proceso" class="nav-i18n" data-es="Proceso" data-en="Process">Proceso</a></li><li><a href="#projects" class="nav-i18n" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
@@ -843,6 +851,8 @@ var projects = [
     contributions_en: ["Systems Design", "Internal Economy", "Customer Design", "Cooking Mechanics"],
     whatIDid_es: ["Diseño del sistema de recetas y pasos de cocción","Creación de la variedad de clientes con paciencia y recompensas distintas","Sistema de economía: ingresos de oro y mejoras del local","Diseño de flujo de juego y loop principal","Colaboración en la documentación de diseño del proyecto"],
     whatIDid_en: ["Recipe system and cooking steps design","Created diverse customer types with different patience and rewards","Economy system: gold income and venue upgrades","Gameplay flow and main loop design","Collaboration on the project's design documentation"],
+    learned_es: "Identificar y mejorar los puntos débiles de mis spec docs — secciones que no comunicaban bien y necesitaban más claridad.",
+    learned_en: "Identify and improve the weak points in my spec docs — sections that weren't communicating clearly enough.",
     itchUrl: "https://valenvbucks.itch.io/goblin-tavern"
   },
   {
@@ -867,6 +877,8 @@ var projects = [
     contributions_en: ["Level Design", "Narrative", "Combat Design", "Humor & Tone"],
     whatIDid_es: ["Diseño del flujo de combate y mecánicas de disparo","Creación del tono narrativo autoconsiente y humorístico","Diseño de los espacios de juego en un mundo post-apocalíptico","Coordinación del equipo de desarrollo","Testing y ajuste de la experiencia de juego"],
     whatIDid_en: ["Combat flow and shooting mechanics design","Created the self-aware and humorous narrative tone","Game space design in a post-apocalyptic world","Development team coordination","Testing and gameplay experience tuning"],
+    learned_es: "Trabajar bajo presión en una game jam — tomar decisiones rápidas, priorizar y entregar en tiempo.",
+    learned_en: "Work under pressure in a game jam — make fast decisions, prioritize and deliver on time.",
     itchUrl: "https://santiagomastroberti.itch.io/the-morning-after"
   },
   {
@@ -892,6 +904,8 @@ var projects = [
     contributions_en: ["Puzzle Design", "Atmosphere", "Horror Design", "Narrative"],
     whatIDid_es: ["Diseño de los puzzles de escape dentro de la casa","Construcción de la atmósfera de terror y tensión","Diseño del comportamiento e IA del asesino","Desarrollo de la narrativa de supervivencia","Playtesting enfocado en fear factor y dificultad"],
     whatIDid_en: ["Escape puzzle design inside the house","Built the terror and tension atmosphere","Killer behavior and AI design","Survival narrative development","Playtesting focused on fear factor and difficulty"],
+    learned_es: "Iterar sobre mecánicas de horror y dar mis primeros pasos con Unreal Engine en un proyecto real.",
+    learned_en: "Iterate on horror mechanics and take my first real steps with Unreal Engine.",
     itchUrl: "https://santiagomastroberti.itch.io/hunting-hum"
   },
   {
@@ -915,6 +929,8 @@ var projects = [
     contributions_en: ["Full Design", "Pixel Art", "Upgrade System", "Balancing"],
     whatIDid_es: ["Diseño completo del juego desde cero","Sistema de oleadas de enemigos con dificultad progresiva","Sistema de upgrades y power-ups personalizable","Diseño visual en pixel art","Balanceo de dificultad y curva de progresión"],
     whatIDid_en: ["Full game design from scratch","Enemy wave system with progressive difficulty","Customizable upgrade and power-up system","Pixel art visual design","Difficulty balancing and progression curve"],
+    learned_es: "Dominar herramientas de pixel art y sentar las bases de mi flujo de trabajo en C# — fue mi primer proyecto.",
+    learned_en: "Master pixel art tools and build my C# workflow foundation — it was my first project.",
     itchUrl: "https://santiagomastroberti.itch.io/meteor-madness"
   },
   {
@@ -936,6 +952,8 @@ var projects = [
     contributions_en: ["Platform Design", "Coin System", "Progression", "Enemy Design"],
     whatIDid_es: ["Diseño de la progresión vertical y layout de niveles","Sistema de economía de monedas y tienda de upgrades","Diseño de tipos de enemigos con comportamientos distintos","Coordinación del equipo de 5 personas","Documentación del diseño del prototipo"],
     whatIDid_en: ["Vertical progression and level layout design","Coin economy and upgrade shop system","Enemy type design with distinct behaviors","5-person team coordination","Prototype design documentation"],
+    learned_es: "Mantener código limpio y legible trabajando con varios programadores en simultáneo.",
+    learned_en: "Keep clean, readable code while working alongside multiple programmers at the same time.",
     itchUrl: "https://luqui1004.itch.io/astroup"
   },
   {
@@ -960,6 +978,8 @@ var projects = [
     contributions_en: ["Full Design", "Narrative & Worldbuilding", "Combat Design", "2D Art"],
     whatIDid_es: ["Creación del universo narrativo: dos reinos, historia de guerra y motivación del protagonista","Diseño de mecánicas de combate mágico","Diseño de niveles con alta dificultad progresiva","Arte y animaciones 2D del personaje","Gestión completa del proyecto como desarrollador en solitario"],
     whatIDid_en: ["Created the narrative universe: two kingdoms, war story and protagonist motivation","Magical combat mechanics design","Level design with progressively high difficulty","Character 2D art and animations","Full project management as a solo developer"],
+    learned_es: "Gestionar un proyecto individual completo e identificar con claridad qué mejorar en la siguiente iteración.",
+    learned_en: "Manage a complete solo project and clearly identify what to improve in the next iteration.",
     itchUrl: "https://santiagomastroberti.itch.io/la-venganza-de-vernon"
   }
 ];
@@ -1023,9 +1043,10 @@ function openModal(id) {
   document.getElementById('modal-role').textContent = p.role;
   document.getElementById('modal-title').textContent = p.title;
 
+  var lang = window._currentLang || 'es';
   var plats = p.platforms.map(function(pl){ return '<span class="plat">'+pl+'</span>'; }).join('');
-  var contribs = p.contributions.map(function(c){ return '<span class="contrib-tag">'+c+'</span>'; }).join('');
-  var items = p.whatIDid.map(function(item){
+  var contribs = (p['contributions_' + lang] || p.contributions_es || []).map(function(c){ return '<span class="contrib-tag">'+c+'</span>'; }).join('');
+  var items = (p['whatIDid_' + lang] || p.whatIDid_es || []).map(function(item){
     return '<div style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.85rem;color:var(--muted);margin-bottom:0.4rem"><span style="color:var(--accent);flex-shrink:0">▹</span><span>'+item+'</span></div>';
   }).join('');
 
@@ -1044,22 +1065,32 @@ function openModal(id) {
   }
 
   var lang = window._currentLang || 'es';
-  var descLabel   = lang === 'es' ? 'Descripción' : 'Description';
-  var didLabel    = lang === 'es' ? 'Lo que hice' : 'What I did';
-  var statsLabel  = lang === 'es' ? 'Stats en itch.io' : 'Stats on itch.io';
-  var viewsLabel  = lang === 'es' ? 'Vistas' : 'Views';
-  var dlLabel     = lang === 'es' ? 'Descargas' : 'Downloads';
-  var areasLabel  = lang === 'es' ? 'Áreas de diseño' : 'Design areas';
-  var fullDesc    = p['fullDesc_' + lang] || p.fullDesc_es;
-  var contribs    = (p['contributions_' + lang] || p.contributions_es).map(function(c){ return '<span class="contrib-tag">'+c+'</span>'; }).join('');
-  var items       = (p['whatIDid_' + lang] || p.whatIDid_es).map(function(item){
+  var descLabel    = lang === 'es' ? 'Descripción' : 'Description';
+  var didLabel     = lang === 'es' ? 'Lo que hice' : 'What I did';
+  var learnedLabel = lang === 'es' ? 'Lo que aprendí' : 'What I learned';
+  var statsLabel   = lang === 'es' ? 'Stats en itch.io' : 'Stats on itch.io';
+  var viewsLabel   = lang === 'es' ? 'Vistas' : 'Views';
+  var dlLabel      = lang === 'es' ? 'Descargas' : 'Downloads';
+  var areasLabel   = lang === 'es' ? 'Áreas de diseño' : 'Design areas';
+  var fullDesc     = p['fullDesc_' + lang] || p.fullDesc_es;
+  var contribs     = (p['contributions_' + lang] || p.contributions_es).map(function(c){ return '<span class="contrib-tag">'+c+'</span>'; }).join('');
+  var items        = (p['whatIDid_' + lang] || p.whatIDid_es).map(function(item){
     return '<div style="display:flex;gap:0.75rem;align-items:flex-start;font-size:0.85rem;color:var(--muted);margin-bottom:0.4rem"><span style="color:var(--accent);flex-shrink:0">▹</span><span>'+item+'</span></div>';
   }).join('');
+  var learnedText = p['learned_' + lang] || p.learned_es || '';
+  var learnedHtml = learnedText ? (
+    '<div class="modal-section-title">' + learnedLabel + '</div>' +
+    '<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.9rem 1rem;background:rgba(255,77,109,0.05);border-left:3px solid var(--accent);font-size:0.85rem;color:var(--muted);line-height:1.7;">' +
+      '<span style="color:var(--accent);flex-shrink:0;font-size:1rem;">💡</span>' +
+      '<span>' + learnedText + '</span>' +
+    '</div>'
+  ) : '';
   document.getElementById('modal-body').innerHTML =
     trailerHtml +
     '<div class="modal-section-title" style="margin-top:'+(p.trailerYT?'1.5rem':'0')+'">'+descLabel+'</div>' +
     '<p>'+fullDesc+'</p>' +
     '<div class="modal-section-title">'+didLabel+'</div><div>'+items+'</div>' +
+    learnedHtml +
     '<div class="modal-section-title">'+statsLabel+'</div>' +
     '<div style="display:flex;gap:2rem;margin-bottom:0.5rem">' +
       '<div class="card-analytics-item"><span class="card-analytics-num">'+p.views+'</span><span class="card-analytics-label">'+viewsLabel+'</span></div>' +
@@ -1252,6 +1283,7 @@ function applyLang(lang) {
   });
   // re-render projects con idioma
   renderProjects(window._activeFilter || 'all', lang);
+  if (window._updateReadTime) window._updateReadTime();
 }
 
 function toggleLang() {
@@ -1276,6 +1308,39 @@ window.addEventListener('load', function() {
   applyLang(window._currentLang);
 });
 
+
+// ── FAQ LINES ANIMATION ──
+(function() {
+  var faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        setTimeout(function() {
+          entry.target.classList.add('faq-visible');
+        }, Array.from(faqItems).indexOf(entry.target) * 80);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  faqItems.forEach(function(el) { obs.observe(el); });
+})();
+
+// ── READ TIME ──
+(function() {
+  var el = document.getElementById('read-time');
+  if (!el) return;
+  var text = document.body.innerText || '';
+  var words = text.trim().split(/\s+/).length;
+  var mins = Math.max(2, Math.round(words / 200));
+  function updateReadTime() {
+    var lang = window._currentLang || 'es';
+    el.textContent = lang === 'es' ? '~ ' + mins + ' min de lectura' : '~ ' + mins + ' min read';
+  }
+  updateReadTime();
+  el.style.display = 'inline';
+  window._updateReadTime = updateReadTime;
+})();
 
 // ── SCROLL PROGRESS BAR ──
 window.addEventListener('scroll', function() {
